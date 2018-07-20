@@ -3,6 +3,7 @@
 
   <head>
     <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1">
     <title>Главная &ndash; Седона</title>
   </head>
 
@@ -11,7 +12,10 @@
 
       <header class="page-header">
         <a class="page-header__page-logo  page-logo">
-          <img class="page-logo__image" src="img/placeholder" alt="Логотип сайта">
+          <picture>
+            <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
+            <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
+          </picture>
         </a>
 
         <ul class="page-header__main-nav  main-nav">
@@ -33,7 +37,7 @@
       <main class="page-main">
         <section class="intro">
           <header class="intro__header">
-            <img class="intro__graphic-text  intro__graphic-text--index" src="img/placeholder" alt="Welcome to the gorgeous Sedona">
+            <img class="intro__graphic-text  intro__graphic-text--index" src="img/text-sedona-index.svg" width="280" height="213" alt="Welcome to the gorgeous Sedona">
           </header>
 
           <h1 class="intro__title">Седона&nbsp;&ndash; небольшой городок в&nbsp;Аризоне, заслуживающий большего!</h1>
@@ -101,7 +105,15 @@
         <section class="sedona-location">
           <h2 class="visually-hidden">Местоположение Седоны</h2>
           <p class="visually-hidden">86336, Седона, штат Аризона, США</p>
-          <img class="sedona-location__img" src="img/placeholder" alt="86336, Седона, штат Аризона, США">
+          <picture>
+            <source type="image/webp" media="(min-width: 1200px)" srcset="img/bg-map-desktop@1x.webp 1x,  img/bg-map-desktop@2x.webp 2x">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/bg-map-tablet@1x.webp 1x,  img/bg-map-tablet@2x.webp 2x">
+            <source type="image/webp" srcset="img/bg-map-mobile@1x.webp 1x,  img/bg-map-mobile@2x.webp 2x">
+
+            <source media="(min-width: 1200px)" srcset="img/bg-map-desktop@1x.jpg 1x,  img/bg-map-desktop@2x.jpg 2x">
+            <source media="(min-width: 768px)" srcset="img/bg-map-tablet@1x.jpg 1x,  img/bg-map-tablet@2x.jpg 2x">
+            <img class="sedona-location__img" src="img/bg-map-mobile@1x.jpg" srcset="img/bg-map-mobile@2x.jpg 2x" alt="86336, Седона, штат Аризона, США">
+          </picture>
         </section>
       </main>
 
@@ -116,14 +128,23 @@
 
           <a class="socials__btn  socials__btn--twitter  btn" href="https://twitter.com" target="_blank">
             <span class="visually-hidden">Twitter</span>
+            <svg class="socials__icon  socials__icon--twitter" width="18" height="14">
+              <use xlink:href="img/sprite.svg#icon-twitter"></use>
+            </svg>
           </a>
 
           <a class="socials__btn  socials__btn--facebook  btn" href="https://facebook.com" target="_blank">
             <span class="visually-hidden">Facebook</span>
+            <svg class="socials__icon  socials__icon--facebook" width="9" height="18">
+              <use xlink:href="img/sprite.svg#icon-facebook"></use>
+            </svg>
           </a>
 
           <a class="socials__btn  socials__btn--youtube  btn" href="https://youtube.com" target="_blank">
             <span class="visually-hidden">YouTube</span>
+            <svg class="socials__icon  socials__icon--youtube" width="20" height="14">
+              <use xlink:href="img/sprite.svg#icon-youtube"></use>
+            </svg>
           </a>
         </p>
 
@@ -131,11 +152,16 @@
           <span class="visually-hidden">Артём Картавцев для</span>
           <a class="copyright__link" href="https://htmlacademy.ru" target="_blank">
             <span class="visually-hidden">HTML Academy</span>
+            <svg class="copyright__logo" width="115" height="41">
+              <use xlink:href="img/sprite.svg#logo-htmlacademy"></use>
+            </svg>
           </a>
         </p>
       </footer>
 
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 
 </html>
