@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1">
+    <title>Галерея &ndash; Седона</title>
+
+    <link rel="preload" href="font/ptsans.woff2" as="font">
+    <link rel="preload" href="font/ptsansbold.woff2" as="font">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+
+  <body class="page-body">
+    <div class="page-body__container">
+
+      <header class="page-header">
+        <div class="page-header__bar">
+          <a class="page-header__page-logo  page-logo">
+            <picture>
+              <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
+              <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
+            </picture>
+          </a>
+        </div>
+
+        <ul class="page-header__main-nav  main-nav">
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="hotels.html">Поиск отеля</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link  main-nav__link--current">Фото и видео</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="feedback.html">Форма отзыва</a>
+          </li>
+        </ul>
+      </header>
+
+      <main class="page-main">
+        <section class="intro">
+          <header class="intro__header">
+            <img class="intro__graphic-text" src="img/text-sedona.svg" width="229" height="39" alt="Sedona">
+          </header>
+
+          <h1 class="intro__title">Фото и видео</h1>
+          <p class="intro__text">Не&nbsp;можете решиться на&nbsp;путешествие из-за курса? Фотографии&nbsp;помогут вам забыть о&nbsp;политике и&nbsp;экономике</p>
+        </section>
+
+        <section class="gallery">
+          <h2 class="visually-hidden">Фотографии наших туристов</h2>
+
+          <article class="snapshot  snapshot--primary">
+            <a class="snapshot__image-link" href="#" target="_blank">
+              <picture>
+                <source type="image/webp" media="(min-width: 1200px)" srcset="img/photo-sunset-desktop@1x.webp 1x,  img/photo-sunset-desktop@2x.webp 2x">
+                <source type="image/webp"  media="(min-width: 768px)" srcset="img/photo-sunset-tablet@1x.webp 1x,  img/photo-sunset-tablet@2x.webp 2x">
+                <source type="image/webp" srcset="img/photo-sunset-mobile@1x.webp 1x,  img/photo-sunset-mobile@2x.webp 2x">
+
+                <source media="(min-width: 1200px)" srcset="img/photo-sunset-desktop@1x.jpg 1x,  img/photo-sunset-desktop@2x.jpg 2x">
+                <source media="(min-width: 768px)" srcset="img/photo-sunset-tablet@1x.jpg 1x,  img/photo-sunset-tablet@2x.jpg 2x">
+                <img class="snapshot__image" src="img/photo-sunset-mobile@1x.jpg" srcset="img/photo-sunset-mobile@2x.jpg 2x" alt="Неродные просторы">
+              </picture>
+            </a>
+
+            <div class="snapshot__bar">
+              <div class="snapshot__description">
+                <h3 class="snapshot__title">Неродные просторы</h3>
+                <p class="snapshot__author">Автор фото: Борис</p>
+              </div>
+
+              <div class="snapshot__vote  vote">
+                <button class="vote__btn" type="button">
+                  <span class="visually-hidden">Мне нравится!</span>
+                  <svg class="vote__thumb-icon" width="22" height="20">
+                    <use xlink:href="img/sprite.svg#icon-like"></use>
+                  </svg>
+                </button>
+                <span class="vote__counter">1350</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="snapshot">
+            <a class="snapshot__image-link" href="#" target="_blank">
+              <picture>
+                <source type="image/webp" media="(min-width: 1200px)" srcset="img/photo-cactus-desktop@1x.webp 1x,  img/photo-cactus-desktop@2x.webp 2x">
+                <source type="image/webp"  media="(min-width: 768px)" srcset="img/photo-cactus-tablet@1x.webp 1x,  img/photo-cactus-tablet@2x.webp 2x">
+                <source type="image/webp" srcset="img/photo-cactus-mobile@1x.webp 1x,  img/photo-cactus-mobile@2x.webp 2x">
+
+                <source media="(min-width: 1200px)" srcset="img/photo-cactus-desktop@1x.jpg 1x,  img/photo-cactus-desktop@2x.jpg 2x">
+                <source media="(min-width: 768px)" srcset="img/photo-cactus-tablet@1x.jpg 1x,  img/photo-cactus-tablet@2x.jpg 2x">
+                <img class="snapshot__image" src="img/photo-cactus-mobile@1x.jpg" srcset="img/photo-cactus-mobile@2x.jpg 2x" alt="Местная растительность">
+              </picture>
+            </a>
+
+            <div class="snapshot__bar">
+              <div class="snapshot__description">
+                <h3 class="snapshot__title">Местная растительность</h3>
+                <p class="snapshot__author">Автор фото: Сергей</p>
+              </div>
+
+              <div class="snapshot__vote  vote">
+                <button class="vote__btn" type="button">
+                  <span class="visually-hidden">Мне нравится!</span>
+                  <svg class="vote__thumb-icon" width="22" height="20">
+                    <use xlink:href="img/sprite.svg#icon-like"></use>
+                  </svg>
+                </button>
+                <span class="vote__counter">143</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="snapshot">
+            <a class="snapshot__image-link" href="#" target="_blank">
+              <picture>
+                <source type="image/webp" media="(min-width: 1200px)" srcset="img/photo-roads-desktop@1x.webp 1x,  img/photo-roads-desktop@2x.webp 2x">
+                <source type="image/webp"  media="(min-width: 768px)" srcset="img/photo-roads-tablet@1x.webp 1x,  img/photo-roads-tablet@2x.webp 2x">
+                <source type="image/webp" srcset="img/photo-roads-mobile@1x.webp 1x,  img/photo-roads-mobile@2x.webp 2x">
+
+                <source media="(min-width: 1200px)" srcset="img/photo-roads-desktop@1x.jpg 1x,  img/photo-roads-desktop@2x.jpg 2x">
+                <source media="(min-width: 768px)" srcset="img/photo-roads-tablet@1x.jpg 1x,  img/photo-roads-tablet@2x.jpg 2x">
+                <img class="snapshot__image" src="img/photo-roads-mobile@1x.jpg" srcset="img/photo-roads-mobile@2x.jpg 2x" alt="Дорога на север">
+              </picture>
+            </a>
+
+            <div class="snapshot__bar">
+              <div class="snapshot__description">
+                <h3 class="snapshot__title">Дорога на&nbsp;север</h3>
+                <p class="snapshot__author">Автор фото: Петр</p>
+              </div>
+
+              <div class="snapshot__vote  vote">
+                <button class="vote__btn" type="button">
+                  <span class="visually-hidden">Мне нравится!</span>
+                  <svg class="vote__thumb-icon" width="22" height="20">
+                    <use xlink:href="img/sprite.svg#icon-like"></use>
+                  </svg>
+                </button>
+                <span class="vote__counter">96</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="snapshot">
+            <a class="snapshot__image-link" href="#" target="_blank">
+              <picture>
+                <source type="image/webp" media="(min-width: 1200px)" srcset="img/photo-bridge-desktop@1x.webp 1x,  img/photo-bridge-desktop@2x.webp 2x">
+                <source type="image/webp"  media="(min-width: 768px)" srcset="img/photo-bridge-tablet@1x.webp 1x,  img/photo-bridge-tablet@2x.webp 2x">
+                <source type="image/webp" srcset="img/photo-bridge-mobile@1x.webp 1x,  img/photo-bridge-mobile@2x.webp 2x">
+
+                <source media="(min-width: 1200px)" srcset="img/photo-bridge-desktop@1x.jpg 1x,  img/photo-bridge-desktop@2x.jpg 2x">
+                <source media="(min-width: 768px)" srcset="img/photo-bridge-tablet@1x.jpg 1x,  img/photo-bridge-tablet@2x.jpg 2x">
+                <img class="snapshot__image" src="img/photo-bridge-mobile@1x.jpg" srcset="img/photo-bridge-mobile@2x.jpg 2x" alt="Мост Дьявола">
+              </picture>
+            </a>
+
+            <div class="snapshot__bar">
+              <div class="snapshot__description">
+                <h3 class="snapshot__title">Мост Дьявола</h3>
+                <p class="snapshot__author">Автор фото: Антон</p>
+              </div>
+
+              <div class="snapshot__vote  vote">
+                <button class="vote__btn" type="button">
+                  <span class="visually-hidden">Мне нравится!</span>
+                  <svg class="vote__thumb-icon" width="22" height="20">
+                    <use xlink:href="img/sprite.svg#icon-like"></use>
+                  </svg>
+                </button>
+                <span class="vote__counter">254</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="presentation">
+          <h2 class="presentation__title">Всё ещё сомневаетесь?</h2>
+          <p class="presentation__text">Смотрите видеопрезентацию и&nbsp;скорее за&nbsp;билетами, пока они не&nbsp;подорожали в&nbsp;очередной раз!</p>
+
+          <div class="presentation__player  player">
+            <video class="player__frame" controls></video>
+
+            <div class="player__controls-pane" hidden>
+              <button class="player__control  player__control--replay" type="button">
+                <span class="visually-hidden">Повтор</span>
+              </button>
+
+              <div class="player__status-bar">
+                <div class="player__timeline">
+                  <div class="player__time-pointer" tabindex="0"></div>
+                </div>
+              </div>
+
+              <button class="player__control  player__control--subtitles" type="button">
+                <span class="visually-hidden">Включить субтитры</span>
+              </button>
+
+              <button class="player__control  player__control--fullscreen" type="button">
+                <span class="visually-hidden">Поноэкранный режим</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="page-footer">
+        <p class="page-footer__item  page-footer__item--hashtag  hashtag">
+          <span class="visually-hidden">Ищите нас по хэштегу</span>
+          <a class="hashtag__link" href="https://instagram.com/explore/tags/visitsedona" target="_blank">#VISITSEDONA</a>
+        </p>
+
+        <p class="page-footer__item  page-footer__item--socials  socials">
+          <span class="visually-hidden">Мы в социальных сетях:</span>
+
+          <a class="socials__btn  socials__btn--twitter  btn" href="https://twitter.com" target="_blank">
+            <span class="visually-hidden">Twitter</span>
+            <svg class="socials__icon  socials__icon--twitter" width="18" height="14">
+              <use xlink:href="img/sprite.svg#icon-twitter"></use>
+            </svg>
+          </a>
+
+          <a class="socials__btn  socials__btn--facebook  btn" href="https://facebook.com" target="_blank">
+            <span class="visually-hidden">Facebook</span>
+            <svg class="socials__icon  socials__icon--facebook" width="9" height="18">
+              <use xlink:href="img/sprite.svg#icon-facebook"></use>
+            </svg>
+          </a>
+
+          <a class="socials__btn  socials__btn--youtube  btn" href="https://youtube.com" target="_blank">
+            <span class="visually-hidden">YouTube</span>
+            <svg class="socials__icon  socials__icon--youtube" width="20" height="14">
+              <use xlink:href="img/sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </p>
+
+        <p class="page-footer__item  copyright">
+          <span class="visually-hidden">Артём Картавцев для</span>
+          <a class="copyright__link" href="https://htmlacademy.ru" target="_blank">
+            <span class="visually-hidden">HTML Academy</span>
+            <svg class="copyright__logo" width="115" height="41">
+              <use xlink:href="img/sprite.svg#logo-htmlacademy"></use>
+            </svg>
+          </a>
+        </p>
+      </footer>
+
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+
+</html>

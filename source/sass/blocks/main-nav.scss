@@ -1,0 +1,113 @@
+.main-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-nav__item {
+  border-top: 1px solid rgb(154, 194, 219);
+  border-bottom: 1px solid rgb(103, 143, 168);
+
+  &:first-of-type {
+    border-top-color: $light-blue;
+  }
+
+  &:last-of-type {
+    border-bottom-color: $light-blue;
+  }
+}
+
+.main-nav__link {
+  display: block;
+  padding: 7px $mobile-padding;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: $light-blue;
+
+  &:hover {
+    background-color: $blue;
+  }
+
+  &:active {
+    color: rgba(white, 0.3%);
+    background-color: $dark-blue;
+  }
+
+  &--current {
+    cursor: default;
+
+    &:hover,
+    &:active {
+      color: white;
+      background-color: $light-blue;
+    }
+  }
+}
+
+
+@media (min-width: $tablet-width) {
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-nav__item {
+    box-sizing: border-box;
+    width: 20%;
+    padding: 15px;
+    text-align: center;
+    border: none;
+
+    &:nth-child(2) {
+      margin-right: auto;
+    }
+
+    // на случай переполнения
+    &:nth-child(n+5) {
+      margin-top: 30px;
+      width: 25%;
+    }
+  }
+
+  .main-nav__link {
+    display: inline;
+    padding: 0;
+    font-size: 14px;
+    line-height: 26px;
+    color: black;
+    background-color: transparent;
+
+    &:hover {
+      color: $light-blue;
+      background-color: transparent;
+    }
+
+    &:active {
+      color: rgba(black, 0.3%);
+      background-color: transparent;
+    }
+
+    &--current {
+      color: $brown;
+
+      &:hover,
+      &:active {
+        color: $brown;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  // на случай переполнения
+  .main-nav__item:nth-child(n+5) {
+    margin-top: 40px;
+  }
+}

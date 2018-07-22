@@ -1,0 +1,20 @@
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright__logo {
+  display: block;
+  width: 115px;
+  height: 41px;
+  fill: black;
+
+  &:hover {
+    fill: $light-blue;
+  }
+
+  &:active {
+    fill: rgba(black, 0.3%);
+  }
+}

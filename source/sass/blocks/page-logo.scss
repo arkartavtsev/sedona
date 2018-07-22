@@ -1,0 +1,12 @@
+.page-logo__image {
+  display: block;
+  width: 102px;
+  height: 83px;
+}
+
+@media (min-width: $desktop-width) {
+  .page-logo__image {
+    width: 187px;
+    height: 96px;
+  }
+}
