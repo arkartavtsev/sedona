@@ -21,6 +21,8 @@ var webpCreate = require('gulp-webp');
 
 var svgstore = require('gulp-svgstore');
 
+var ghPages = require('gulp-gh-pages');
+
 
 gulp.task('clean', function () {
   return clean('build');
@@ -143,4 +145,10 @@ gulp.task('serve', function () {
   gulp.watch('source/sass/**/*.{scss,sass}', ['style']);
   gulp.watch('source/**/*.html', ['html']).on('change', server.reload);
   gulp.watch('source/js/**/*.js', ['script']).on('change', server.reload);
+});
+
+
+gulp.task('deploy', function () {
+  return gulp.src('build/**/*')
+    .pipe(ghPages());
 });
