@@ -1,0 +1,32 @@
+//===== common
+@import "variables";
+@import "font";
+//===== body
+@import "blocks/page-body";
+@import "blocks/btn";
+//===== header
+@import "blocks/page-header";
+@import "blocks/page-logo";
+@import "blocks/main-nav";
+//===== main
+@import "blocks/page-main";
+@import "blocks/intro";
+//===== footer
+@import "blocks/page-footer";
+
+
+img {
+  max-width: 100%;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+}

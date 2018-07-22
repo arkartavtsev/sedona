@@ -127,7 +127,12 @@ gulp.task('build', function (done) {
 
 gulp.task('serve', function () {
   server.init({
-    browser: 'chrome',
+    browser: [
+      'chrome',
+      'firefox',
+      'microsoft-edge:http://localhost:3000',
+      'iexplore'
+    ],
     server: 'build/',
     tunnel: 'sedona',
     notify: false,

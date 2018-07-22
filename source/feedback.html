@@ -5,28 +5,34 @@
     <meta charset="utf-8">
     <meta  name="viewport" content="width=device-width, initial-scale=1">
     <title>Форма отзыва &ndash; Седона</title>
+
+    <link rel="preload" href="font/ptsans.woff2" as="font">
+    <link rel="preload" href="font/ptsansbold.woff2" as="font">
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
 
   <body class="page-body">
     <div class="page-body__container">
 
       <header class="page-header">
-        <a class="page-header__page-logo  page-logo" href="index.html">
-          <picture>
-            <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
-            <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
-          </picture>
-        </a>
+        <div class="page-header__bar">
+          <a class="page-header__page-logo  page-logo">
+            <picture>
+              <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
+              <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
+            </picture>
+          </a>
+        </div>
 
         <ul class="page-header__main-nav  main-nav">
           <li class="main-nav__item">
             <a class="main-nav__link" href="index.html">Главная</a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="hotels.html">Отели</a>
+            <a class="main-nav__link" href="hotels.html">Поиск отеля</a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="gallery.html">Галерея</a>
+            <a class="main-nav__link" href="gallery.html">Фото и видео</a>
           </li>
           <li class="main-nav__item">
             <a class="main-nav__link  main-nav__link--current">Форма отзыва</a>
@@ -41,7 +47,7 @@
           </header>
 
           <h1 class="intro__title">Оставьте свой отзыв</h1>
-          <p class="intro__text">Помогите нашим отелям стать лучше! Оставьте отзыв о&nbsp;них, а&nbsp;также о&nbsp;посещённых вами достопримечательностях</p>
+          <p class="intro__text">Помогите нашим отелям стать лучше! Оставьте отзыв о&nbsp;них, а&nbsp;также&nbsp;о&nbsp;посещённых вами достопримечательностях</p>
         </section>
 
         <form class="form" action="https://echo.htmlacademy.ru" method="post">
@@ -130,7 +136,7 @@
 
           <fieldset class="form__fields-group  fields-group">
             <legend class="fields-group__title">Опишите свои эмоции:</legend>
-            <textarea class="form__field  form__field--textarea" name="feedback-text" rows="8" cols="80" placeholder="Опишите подробно все свои восторги"></textarea>
+            <textarea class="form__field  form__field--textarea" name="feedback-text" rows="8" cols="40" placeholder="Опишите подробно все свои восторги"></textarea>
           </fieldset>
 
           <button class="form__btn  btn" type="submit">Отправить отзыв</button>
@@ -139,12 +145,12 @@
       </main>
 
       <footer class="page-footer">
-        <p class="page-footer__item  hashtag">
+        <p class="page-footer__item  page-footer__item--hashtag  hashtag">
           <span class="visually-hidden">Ищите нас по хэштегу</span>
-          <a href="https://instagram.com/explore/tags/visitsedona" target="_blank">#VISITSEDONA</a>
+          <a class="hashtag__link" href="https://instagram.com/explore/tags/visitsedona" target="_blank">#VISITSEDONA</a>
         </p>
 
-        <p class="page-footer__item  socials">
+        <p class="page-footer__item  page-footer__item--socials  socials">
           <span class="visually-hidden">Мы в социальных сетях:</span>
 
           <a class="socials__btn  socials__btn--twitter  btn" href="https://twitter.com" target="_blank">

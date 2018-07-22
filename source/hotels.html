@@ -5,28 +5,34 @@
     <meta charset="utf-8">
     <meta  name="viewport" content="width=device-width, initial-scale=1">
     <title>Отели &ndash; Седона</title>
+
+    <link rel="preload" href="font/ptsans.woff2" as="font">
+    <link rel="preload" href="font/ptsansbold.woff2" as="font">
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
 
   <body class="page-body">
     <div class="page-body__container">
 
       <header class="page-header">
-        <a class="page-header__page-logo  page-logo" href="index.html">
-          <picture>
-            <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
-            <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
-          </picture>
-        </a>
+        <div class="page-header__bar">
+          <a class="page-header__page-logo  page-logo">
+            <picture>
+              <source media="(min-width: 1200px)" srcset="img/logo-sedona-full.svg">
+              <img class="page-logo__image" src="img/logo-sedona.svg" width="102" height="83" alt="Логотип сайта">
+            </picture>
+          </a>
+        </div>
 
         <ul class="page-header__main-nav  main-nav">
           <li class="main-nav__item">
             <a class="main-nav__link" href="index.html">Главная</a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link  main-nav__link--current">Отели</a>
+            <a class="main-nav__link  main-nav__link--current">Поиск отеля</a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="gallery.html">Галерея</a>
+            <a class="main-nav__link" href="gallery.html">Фото и видео</a>
           </li>
           <li class="main-nav__item">
             <a class="main-nav__link" href="feedback.html">Форма отзыва</a>
@@ -40,8 +46,8 @@
             <img class="intro__graphic-text" src="img/text-sedona.svg" width="229" height="39" alt="Sedona">
           </header>
 
-          <h1 class="intro__title">Отели Седоны</h1>
-          <p class="intro__text">Укажите требуемые параметры, и&nbsp;мы&nbsp;покажем Вам лучшие предложения отелей в&nbsp;Седоне</p>
+          <h1 class="intro__title">Поиск отеля</h1>
+          <p class="intro__text">Укажите требуемые параметры, и&nbsp;мы&nbsp;покажем Вам лучшие предложения&nbsp;отелей в&nbsp;Седоне</p>
         </section>
 
         <form class="form" id="filter-form" action="https://echo.htmlacademy.ru" method="get">
@@ -218,12 +224,12 @@
       </main>
 
       <footer class="page-footer">
-        <p class="page-footer__item  hashtag">
+        <p class="page-footer__item  page-footer__item--hashtag  hashtag">
           <span class="visually-hidden">Ищите нас по хэштегу</span>
-          <a href="https://instagram.com/explore/tags/visitsedona" target="_blank">#VISITSEDONA</a>
+          <a class="hashtag__link" href="https://instagram.com/explore/tags/visitsedona" target="_blank">#VISITSEDONA</a>
         </p>
 
-        <p class="page-footer__item  socials">
+        <p class="page-footer__item  page-footer__item--socials  socials">
           <span class="visually-hidden">Мы в социальных сетях:</span>
 
           <a class="socials__btn  socials__btn--twitter  btn" href="https://twitter.com" target="_blank">

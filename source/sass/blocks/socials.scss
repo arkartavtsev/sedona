@@ -1,0 +1,32 @@
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -6px;
+  margin-right: -6px;
+}
+
+.socials__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin-right: 6px;
+
+  // на случай переполнения
+  margin-top: 6px;
+
+  &:active .socials__icon {
+    opacity: 0.3;
+  }
+}
+
+.socials__icon {
+  display: block;
+  fill: white;
+
+  // IE fix
+  pointer-events: none;
+}
