@@ -41,7 +41,7 @@
       </header>
 
       <main class="page-main">
-        <section class="intro">
+        <section class="intro  intro--index">
           <header class="intro__header  intro__header--index">
             <img class="intro__graphic-text  intro__graphic-text--index" src="img/text-sedona-index.svg" width="280" height="213" alt="Welcome to the gorgeous Sedona">
           </header>
@@ -55,8 +55,8 @@
 
           <ol class="features__list">
             <li class="feature  feature--highlighted">
-              <div class="feature__body  feature__body--left">
-                <h3 class="feature__title  feature__title--primary">Настоящий городок</h3>
+              <div class="feature__body  feature__body--left  feature__body--first">
+                <h3 class="feature__title  feature__title--primary  feature__title--highlighted">Настоящий городок</h3>
                 <p class="feature__text">Седона не&nbsp;аттракцион для туристов, там течет своя жизнь</p>
               </div>
               <div class="feature__image  feature__image--city"></div>
@@ -64,22 +64,22 @@
               <ul class="features__list  features__list--secondary">
                 <li class="feature  feature--secondary">
                   <h4 class="feature__title  feature__title--secondary  feature__title--housing">Жильё</h4>
-                  <p class="feature__text">Рекомендуем пожить в&nbsp;настоящем мотеле, всё как в&nbsp;кино!</p>
+                  <p class="feature__text  feature__text--secondary">Рекомендуем пожить в&nbsp;настоящем мотеле, всё как в&nbsp;кино!</p>
                 </li>
                 <li class="feature  feature--secondary">
                   <h4 class="feature__title  feature__title--secondary  feature__title--food">Еда</h4>
-                  <p class="feature__text">Всегда заказывайте фирменный бургер, Вы&nbsp;не&nbsp;разочаруетесь!</p>
+                  <p class="feature__text  feature__text--secondary">Всегда заказывайте фирменный бургер, Вы&nbsp;не&nbsp;разочаруетесь!</p>
                 </li>
                 <li class="feature  feature--secondary">
                   <h4 class="feature__title  feature__title--secondary  feature__title--souvenirs">Сувениры</h4>
-                  <p class="feature__text">Не&nbsp;только китайского, но&nbsp;и&nbsp;местного производства!</p>
+                  <p class="feature__text  feature__text--secondary">Не&nbsp;только китайского, но&nbsp;и&nbsp;местного производства!</p>
                 </li>
               </ul>
             </li>
 
             <li class="feature  feature--highlighted">
               <div class="feature__body  feature__body--right">
-                <h3 class="feature__title  feature__title--primary">Там есть Мост&nbsp;Дьявола</h3>
+                <h3 class="feature__title  feature__title--primary  feature__title--highlighted">Там есть Мост&nbsp;Дьявола</h3>
                 <p class="feature__text">Да, по&nbsp;нему можно пройти! Если вы&nbsp;осмелитесь, конечно</p>
               </div>
               <div class="feature__image  feature__image--bridge"></div>
@@ -112,13 +112,11 @@
           <h2 class="visually-hidden">Местоположение Седоны</h2>
           <p class="visually-hidden">86336, Седона, штат Аризона, США</p>
           <picture>
-            <source type="image/webp" media="(min-width: 1200px)" srcset="img/bg-map-desktop@1x.webp 1x,  img/bg-map-desktop@2x.webp 2x">
-            <source type="image/webp" media="(min-width: 768px)" srcset="img/bg-map-tablet@1x.webp 1x,  img/bg-map-tablet@2x.webp 2x">
-            <source type="image/webp" srcset="img/bg-map-mobile@1x.webp 1x,  img/bg-map-mobile@2x.webp 2x">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/map@1x.webp 1x,  img/map@2x.webp 2x">
+            <source type="image/webp" srcset="img/map-mobile@1x.webp 1x,  img/map-mobile@2x.webp 2x">
 
-            <source media="(min-width: 1200px)" srcset="img/bg-map-desktop@1x.jpg 1x,  img/bg-map-desktop@2x.jpg 2x">
-            <source media="(min-width: 768px)" srcset="img/bg-map-tablet@1x.jpg 1x,  img/bg-map-tablet@2x.jpg 2x">
-            <img class="sedona-location__img" src="img/bg-map-mobile@1x.jpg" srcset="img/bg-map-mobile@2x.jpg 2x" alt="86336, Седона, штат Аризона, США">
+            <source media="(min-width: 768px)" srcset="img/map@1x.jpg 1x,  img/map@2x.jpg 2x">
+            <img class="sedona-location__img" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" alt="86336, Седона, штат Аризона, США">
           </picture>
         </section>
       </main>
@@ -168,6 +166,7 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDz5wQ-z_l-PufvUBx6d5FXDnwb-3dJYRU&callback=initMap"></script>
   </body>
 
 </html>

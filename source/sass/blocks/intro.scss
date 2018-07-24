@@ -2,6 +2,24 @@
   padding-bottom: 30px;
   text-align: center;
   border-bottom: 1px solid $gray;
+
+  @media (max-width: $mobile-only-width) {
+    &--index {
+      position: relative;
+      padding-bottom: 3%;
+      border-bottom: none;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -37px;
+        left: 0;
+        height: 37px;
+        background: url("../img/intro-triangle-bottom.svg") 50% 0% / 767px auto no-repeat;
+      }
+    }
+  }
 }
 
 .intro__header {

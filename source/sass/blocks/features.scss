@@ -1,0 +1,30 @@
+.features__list {
+  counter-reset: list-counter;
+
+  padding: 0;
+  margin: 0;
+  line-height: 21px;
+  text-align: center;
+  list-style: none;
+  background-color: $light-gray;
+}
+
+.features__list--secondary {
+  padding: 30px $mobile-padding;
+  text-align: left;
+  color: $light-black;
+  background-color: white;
+}
+
+
+@media (min-width: $tablet-width) {
+  .features__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .features__list--secondary {
+    padding: 0;
+    text-align: center;
+  }
+}

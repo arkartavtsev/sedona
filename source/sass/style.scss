@@ -1,6 +1,7 @@
 //===== common
 @import "variables";
 @import "font";
+
 //===== body
 @import "blocks/page-body";
 @import "blocks/btn";
@@ -17,10 +18,11 @@
 @import "blocks/socials";
 @import "blocks/copyright";
 
-
-img {
-  max-width: 100%;
-}
+//===== index.html
+@import "blocks/features";
+@import "blocks/feature";
+@import "blocks/hotels-search";
+@import "blocks/sedona-location";
 
 
 .visually-hidden {

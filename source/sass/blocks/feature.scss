@@ -1,0 +1,254 @@
+.feature {
+  &--highlighted {
+    color: white;
+    background-color: $light-blue;
+  }
+
+  &--primary {
+    position: relative;
+    padding: 30px $mobile-padding;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: $mobile-padding;
+      bottom: 0;
+      left: $mobile-padding;
+      border-bottom: 1px solid $dark-gray;
+    }
+
+    &:last-child::after {
+      border: none;
+    }
+  }
+
+  &--secondary {
+    margin-bottom: 15px;
+  }
+
+  &--secondary:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.feature__body {
+  padding: 30px $mobile-padding;
+
+  &--first {
+    padding-top: 67px;
+  }
+}
+
+.feature__title {
+  margin: 0;
+  margin-bottom: 14px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+
+  &--highlighted {
+    color: white;
+  }
+
+  &--primary::after {
+    counter-increment: list-counter;
+
+    content: "– №" counter(list-counter) " –";
+    display: block;
+    margin-top: 12px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &--secondary {
+    padding: 7px 0;
+    padding-left: 50px;
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+  }
+
+  &--housing {
+    background-image: url("../img/icon-house.svg");
+    background-position: 1px 0;
+    background-size: 37px 37px;
+  }
+
+  &--food {
+    background-image: url("../img/icon-burger.svg");
+    background-position: 0 2px;
+    background-size: 38px 35px;
+  }
+
+  &--souvenirs {
+    padding-top: 10px;
+    padding-bottom: 4px;
+    background-image: url("../img/icon-gift.svg");
+    background-position: 2px 0;
+    background-size: 32px 38px;
+  }
+}
+
+.feature__text {
+  margin: 0;
+
+  &--secondary {
+    padding-left: 50px;
+  }
+}
+
+.feature__image {
+  height: 260px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &--city {
+    background-image: url("../img/main-city-mobile@1x.jpg");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/main-city-mobile@2x.jpg");
+    }
+  }
+
+  &--bridge {
+    background-image: url("../img/main-bridge-mobile@1x.jpg");
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/main-bridge-mobile@2x.jpg");
+    }
+  }
+}
+
+
+@media (min-width: $tablet-width) {
+  .feature {
+    &--highlighted {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    &--primary {
+      box-sizing: border-box;
+      width: 33.33%;
+      padding: 40px 5.21%;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &--secondary {
+      box-sizing: border-box;
+      width: 33.33%;
+      padding: 40px 5.21%;
+      margin: 0;
+    }
+  }
+
+  .feature__body {
+    box-sizing: border-box;
+    width: 33.33%;
+    padding: 40px 5.21%;
+
+    &--right {
+      order: 1;
+    }
+  }
+
+  .feature__title {
+    width: 160px;
+    margin: 0 auto;
+    margin-bottom: 14px;
+    font-size: 21px;
+
+    &--primary::after {
+      margin-top: 14px;
+    }
+
+    &--secondary {
+      padding: 0;
+      padding-top: 100px;
+      margin-bottom: 21px;
+    }
+
+    &--housing {
+      background-position: 50% 3px;
+      background-size: 75px 72px;
+    }
+
+    &--souvenirs {
+      background-position: 50% 0;
+      background-size: 64px 75px;
+    }
+
+    &--food {
+      background-position: 50% 6px;
+      background-size: 77px 68px;
+    }
+  }
+
+  .feature__text {
+    &--secondary {
+      padding-left: 0;
+    }
+  }
+
+  .feature__image {
+    width: 66.67%;
+    height: auto;
+
+    &--city {
+      background-image: url("../img/main-city-tablet@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/main-city-tablet@2x.jpg");
+      }
+    }
+
+    &--bridge {
+      background-image: url("../img/main-bridge-tablet@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/main-bridge-tablet@2x.jpg");
+      }
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .feature {
+    &--primary {
+      padding: 50px 55px;
+    }
+
+    &--secondary {
+      padding: 50px 55px;
+    }
+  }
+
+  .feature__body {
+    padding: 50px 55px;
+  }
+
+  .feature__image {
+    &--city {
+      background-image: url("../img/main-city-desktop@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/main-city-desktop@2x.jpg");
+      }
+    }
+
+    &--bridge {
+      background-image: url("../img/main-bridge-desktop@1x.jpg");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/main-bridge-desktop@2x.jpg");
+      }
+    }
+  }
+}
