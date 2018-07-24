@@ -61,6 +61,7 @@ gulp.task('style', function () {
 
 gulp.task('script', function () {
   return gulp.src('source/js/**/*.js')
+    .pipe(plumber())
     .pipe(jsConcat('script.js'))
     .pipe(jsMinify('script.js'))
     .pipe(gulp.dest('build/js'))
