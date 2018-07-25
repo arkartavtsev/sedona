@@ -1,0 +1,46 @@
+.vote {
+  display: flex;
+  align-items: flex-start;
+}
+
+.vote__btn {
+  box-sizing: border-box;
+  padding: 0;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.vote__thumb-icon {
+  display: block;
+  width: 22px;
+  height: 20px;
+  fill: rgba(black, 0.3%);
+
+  // IE fix
+  position: relative;
+}
+
+.vote__counter {
+  padding-top: 5px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  overflow: hidden;
+}
+
+
+@media (min-width: $tablet-width) {
+  .vote {
+    width: 70px;
+  }
+}

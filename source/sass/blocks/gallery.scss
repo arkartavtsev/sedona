@@ -1,0 +1,15 @@
+@media (min-width: $tablet-width) {
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0 $tablet-padding;
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .gallery {
+    padding: 0;
+  }
+}
