@@ -21,6 +21,13 @@
   margin-bottom: 30px;
 }
 
+.presentation__video {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
 
 @media (min-width: $tablet-width) {
   .presentation {
@@ -37,7 +44,8 @@
     margin-bottom: 40px;
   }
 
-  .presentation__player {
+  .presentation__video {
+    width: 84.375%;
     margin: 0 auto;
   }
 }
