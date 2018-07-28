@@ -54,7 +54,7 @@
     background-color: #5496bd; }
   .btn:disabled, .btn:disabled:hover, .btn:disabled:active, .btn--disabled, .btn--disabled:hover, .btn--disabled:active {
     color: white;
-    background-color: #e5e5e5;
+    background-color: #e6e6e6;
     cursor: default; }
 
 .page-header {
@@ -182,7 +182,7 @@
 .intro {
   padding-bottom: 30px;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5; }
+  border-bottom: 1px solid #e6e6e6; }
   @media (max-width: 767px) {
     .intro--index {
       position: relative;
@@ -635,6 +635,172 @@
 .sedona-location__map {
   width: 100%;
   height: 373px; }
+
+@media (min-width: 768px) {
+  .gallery {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-align: start;
+        align-items: flex-start;
+    padding: 0 7.8125%; } }
+
+@media (min-width: 1200px) {
+  .gallery {
+    padding: 0; } }
+
+.snapshot {
+  padding: 6.25%;
+  border-bottom: 1px solid #e6e6e6; }
+
+.snapshot__image-link {
+  display: block;
+  margin-bottom: 15px; }
+
+.snapshot__image {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+.snapshot__title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  color: black; }
+
+.snapshot__author {
+  margin: 0;
+  margin-bottom: 7px;
+  text-transform: none; }
+
+@media (min-width: 768px) {
+  .snapshot {
+    width: 50%;
+    padding: 0;
+    background-color: #f2f2f2;
+    border: none; }
+    .snapshot--primary {
+      width: 100%; }
+    .snapshot:nth-of-type(2n+3) {
+      background-color: #e6e6e6; }
+  .snapshot__image-link {
+    margin-bottom: 0; }
+  .snapshot__bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 15px; }
+  .snapshot__description {
+    max-width: 70%; }
+  .snapshot__author {
+    margin-bottom: 0; } }
+
+@media (min-width: 1200px) {
+  .snapshot {
+    position: relative;
+    width: 33.33%; }
+    .snapshot--primary {
+      width: 100%; }
+  .snapshot__bar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .snapshot__title {
+    color: white; }
+  .snapshot__vote .vote__thumb-icon {
+    fill: white; }
+  .snapshot__vote .vote__counter {
+    color: white; } }
+
+.vote {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+      align-items: flex-start; }
+
+.vote__btn {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+  .vote__btn:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
+  .vote__btn:active {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9); }
+
+.vote__thumb-icon {
+  display: block;
+  width: 22px;
+  height: 20px;
+  fill: rgba(0, 0, 0, 0.3);
+  position: relative; }
+
+.vote__counter {
+  padding-top: 5px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  overflow: hidden; }
+
+@media (min-width: 768px) {
+  .vote {
+    width: 70px; } }
+
+.presentation {
+  padding-top: 30px;
+  text-align: center; }
+
+.presentation__title {
+  width: 81.25%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: black; }
+
+.presentation__text {
+  width: 81.25%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 30px; }
+
+.presentation__video {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto; }
+
+@media (min-width: 768px) {
+  .presentation {
+    padding: 60px 0 20px; }
+  .presentation__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 36px; }
+  .presentation__text {
+    margin-bottom: 40px; }
+  .presentation__video {
+    width: 84.375%;
+    margin: 0 auto; } }
+
+@media (min-width: 1200px) {
+  .presentation {
+    padding: 70px 0 30px; } }
 
 .visually-hidden {
   position: absolute;

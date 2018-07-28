@@ -182,29 +182,7 @@
           <h2 class="presentation__title">Всё ещё сомневаетесь?</h2>
           <p class="presentation__text">Смотрите видеопрезентацию и&nbsp;скорее за&nbsp;билетами, пока они не&nbsp;подорожали в&nbsp;очередной раз!</p>
 
-          <div class="presentation__player  player">
-            <video class="player__frame" controls></video>
-
-            <div class="player__controls-pane" hidden>
-              <button class="player__control  player__control--replay" type="button">
-                <span class="visually-hidden">Повтор</span>
-              </button>
-
-              <div class="player__status-bar">
-                <div class="player__timeline">
-                  <div class="player__time-pointer" tabindex="0"></div>
-                </div>
-              </div>
-
-              <button class="player__control  player__control--subtitles" type="button">
-                <span class="visually-hidden">Включить субтитры</span>
-              </button>
-
-              <button class="player__control  player__control--fullscreen" type="button">
-                <span class="visually-hidden">Поноэкранный режим</span>
-              </button>
-            </div>
-          </div>
+          <video class="presentation__video" src="video/presentation.mp4#t=0.0001" preload="metadata" width="320" height="auto" controls></video>
         </section>
       </main>
 
