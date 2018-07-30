@@ -1,0 +1,160 @@
+.form__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px $mobile-padding;
+  border-bottom: 1px solid $gray;
+
+  &:last-of-type {
+    margin-bottom: 20px;
+    border-bottom: none;
+  }
+}
+
+.form__group-title {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: black;
+}
+
+.form__field-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.form__label {
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.form__selector {
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.form__field {
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 100px;
+  height: 58px;
+  padding: 0 14px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: inherit;
+  font-family: inherit;
+  color: black;
+  background-color: $light-gray;
+  border: 4px solid $light-gray;
+
+  // iOS fix
+  appearance: none;
+  border-radius: 0;
+
+  &--textarea {
+    display: block;
+    width: 100%;
+    height: 160px;
+    resize: none;
+    padding: 14px;
+  }
+
+  &:hover {
+    background-color: $gray;
+    border-color: $gray;
+  }
+
+  &:focus {
+    background-color: white;
+    border-color: $gray;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: black;
+
+    // Firefox fix
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: $tablet-width) {
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 $tablet-padding;
+  }
+
+  .form__group {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 60px;
+    border-bottom: none;
+
+    &:last-of-type {
+      margin-bottom: 60px;
+    }
+  }
+
+  .form__group-title {
+    margin-bottom: 30px;
+    font-size: 21px;
+    line-height: 26px;
+    text-align: left;
+
+    &--wide {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+
+      &::before,
+      &::after {
+        content: "";
+        width: 19.14%;
+        height: 1px;
+        background-color: $dark-gray;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .form {
+    padding: 0 120px;
+  }
+
+  .form__group {
+    margin-bottom: 80px;
+  }
+
+  .form__group-title {
+    margin-bottom: 40px;
+
+    &--wide {
+      &::before,
+      &::after {
+        width: 280px;
+      }
+    }
+  }
+}

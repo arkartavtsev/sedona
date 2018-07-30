@@ -50,97 +50,102 @@
           <p class="intro__text">Помогите нашим отелям стать лучше! Оставьте отзыв о&nbsp;них, а&nbsp;также&nbsp;о&nbsp;посещённых вами достопримечательностях</p>
         </section>
 
-        <form class="form" action="https://echo.htmlacademy.ru" method="post">
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Представьтесь:</legend>
+        <h2 class="visually-hidden">Форма отзыва</h2>
+        <form class="form  feedback-form" action="https://echo.htmlacademy.ru" method="post">
+          <div class="form__group  feedback-form__column  feedback-form__column--narrow">
+            <h3 class="form__group-title">Представьтесь:</h3>
 
-            <div class="form__filed-wrapper">
+            <div class="form__field-wrapper">
               <label class="form__label" for="author-name">Имя*:</label>
               <input class="form__field" id="author-name" type="text" name="author-name" placeholder="Петр">
             </div>
 
-            <div class="form__filed-wrapper">
+            <div class="form__field-wrapper">
               <label class="form__label" for="author-surname">Фамилия*:</label>
               <input class="form__field" id="author-surname" type="text" name="author-surname" placeholder="Иванов">
             </div>
 
-            <div class="form__filed-wrapper">
+            <div class="form__field-wrapper">
               <label class="form__label" for="author-patronymic">Отчество:</label>
               <input class="form__field" id="author-patronymic" type="text" name="author-patronymic" placeholder="Александрович">
             </div>
-          </fieldset>
+          </div>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Контактная информация:</legend>
+          <div class="form__group  fields-group  feedback-form__contacts-group">
+            <h3 class="form__group-title  form__group-title--wide">Контактная информация:</h3>
 
-            <div class="form__filed-wrapper">
-              <label class="form__label" for="author-tel">Контактный телефон*:</label>
-              <input class="form__field" id="author-tel" type="tel" name="author-tel" placeholder="+7-9XX-XXX-XXXX">
+            <div class="form__field-wrapper  feedback-form__contact  feedback-form__contact--tel">
+              <label class="form__label  feedback-form__contact-label" for="author-tel">
+                <span class="feedback-form__hidden-unit">Контактный</span>
+                телефон*:</label>
+              <input class="form__field  feedback-form__contact-field" id="author-tel" type="tel" name="author-tel" placeholder="+7-9XX-XXX-XXXX">
             </div>
 
-            <div class="form__filed-wrapper">
-              <label class="form__label" for="author-email">Электронная почта*:</label>
-              <input class="form__field" id="author-email" type="email" name="author-email" placeholder="example@domain.name">
+            <div class="form__field-wrapper  feedback-form__contact  feedback-form__contact--email">
+              <label class="form__label  feedback-form__contact-label" for="author-email">Электронная почта*:</label>
+              <input class="form__field  feedback-form__contact-field" id="author-email" type="email" name="author-email" placeholder="mail@domain.name">
             </div>
-          </fieldset>
+          </div>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Ваше общее впечатление:</legend>
+          <div class="form__group  feedback-form__column  feedback-form__column--wide  feedback-form__column--with-line  feedback-form__impression">
+            <h3 class="form__group-title">Ваше общее впечатление:</h3>
 
-            <label class="form__label  form__label--for-selector  form__label--for-radiobtn">
-              <input class="form__radiobtn  visually-hidden" type="radio" name="feedback-impression" value="good" checked>
-              <span class="form__selector-replacer  form__selector-replacer--radiobtn"></span>
-              Скорее положительное
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="radio" name="feedback-impression" value="good" checked>
+              <span class="selector__control-replacer  selector__control-replacer--radiobtn"></span>
+              <span class="selector__caption">Скорее положительное</span>
             </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-radiobtn">
-              <input class="form__radiobtn  visually-hidden" type="radio" name="feedback-impression" value="bad">
-              <span class="form__selector-replacer  form__selector-replacer--radiobtn"></span>
-              Скорее отрицательное
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="radio" name="feedback-impression" value="bad">
+              <span class="selector__control-replacer  selector__control-replacer--radiobtn"></span>
+              <span class="selector__caption">Скорее отрицательное</span>
             </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-radiobtn">
-              <input class="form__radiobtn  visually-hidden" type="radio" name="feedback-impression" value="neutral">
-              <span class="form__selector-replacer  form__selector-replacer--radiobtn"></span>
-              Затрудняюсь ответить
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="radio" name="feedback-impression" value="neutral">
+              <span class="selector__control-replacer  selector__control-replacer--radiobtn"></span>
+              <span class="selector__caption">Затрудняюсь ответить</span>
             </label>
-          </fieldset>
+          </div>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Посещённые достопримечательности:</legend>
+          <div class="form__group">
+            <h3 class="form__group-title  form__group-title--wide">Посещённые достопримечательности:</h3>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="visit-devil-bridge">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Мост Дьявола
-            </label>
+            <div class="feedback-form__landmarks">
+              <label class="form__selector  selector  feedback-form__selector--landmark">
+                <input class="selector__control  visually-hidden" type="checkbox" name="visit-devil-bridge">
+                <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+                <span class="selector__caption">Мост Дьявола</span>
+              </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="visit-bell-mountain">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Гора-Колокол
-            </label>
+              <label class="form__selector  selector  feedback-form__selector--landmark">
+                <input class="selector__control  visually-hidden" type="checkbox" name="visit-bell-mountain" >
+                <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+                <span class="selector__caption">Гора-Колокол</span>
+              </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="visit-slide-park">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Слайд-парк
-            </label>
+              <label class="form__selector  selector  feedback-form__selector--landmark">
+                <input class="selector__control  visually-hidden" type="checkbox" name="visit-slide-park">
+                <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+                <span class="selector__caption">Слайд-парк</span>
+              </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="visit-red-rocks">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Красные скалы
-            </label>
-          </fieldset>
+              <label class="form__selector  selector  feedback-form__selector--landmark">
+                <input class="selector__control  visually-hidden" type="checkbox" name="visit-red-rocks">
+                <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+                <span class="selector__caption">Красные скалы</span>
+              </label>
+            </div>
+          </div>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Опишите свои эмоции:</legend>
+          <div class="form__group">
+            <h3 class="form__group-title  form__group-title--wide">Опишите свои эмоции:</h3>
             <textarea class="form__field  form__field--textarea" name="feedback-text" rows="8" cols="40" placeholder="Опишите подробно все свои восторги"></textarea>
-          </fieldset>
+          </div>
 
-          <button class="form__btn  btn" type="submit">Отправить отзыв</button>
-          <p class="form__tip">* &ndash; Обязательные поля</p>
+          <button class="feedback-form__btn  btn" type="submit">Отправить отзыв</button>
+          <p class="feedback-form__tip">* &ndash; Обязательные поля</p>
         </form>
       </main>
 
