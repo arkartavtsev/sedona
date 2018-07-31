@@ -1,0 +1,165 @@
+.feedback-form__contact {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 58px;
+    height: 58px;
+    background-color: $gray;
+    background-position: 50% 50%;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+  }
+
+  &--tel::after {
+    background-image: url("../img/icon-phone.svg");
+  }
+
+  &--email::after {
+    background-image: url("../img/icon-mail.svg");
+  }
+}
+
+.feedback-form__contact-label {
+  margin-right: 0;
+  margin-bottom: 7px;
+  margin-left: 18px;
+}
+
+.feedback-form__contact-field {
+  width: 100%;
+  padding-right: 72px;
+}
+
+.feedback-form__btn {
+  width: 87.5%;
+  margin: 0 auto;
+}
+
+.feedback-form__tip {
+  display: none;
+  margin: 0;
+}
+
+
+@media (min-width: $tablet-width) {
+  .feedback-form__column {
+    box-sizing: border-box;
+
+    &--wide {
+      width: 50%;
+    }
+
+    &--narrow {
+      width: 42%;
+    }
+
+    &--with-line {
+      border-right: 1px solid $dark-gray;
+    }
+  }
+
+  .feedback-form__impression {
+    order: -1;
+  }
+
+  .feedback-form__btn {
+    width: 50%;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .feedback-form__tip {
+    display: block;
+    align-self: center;
+    max-width: 42%;
+  }
+
+  .feedback-form__landmarks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: -20px;
+  }
+
+  .feedback-form__selector--landmark {
+    width: 210px;
+
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .feedback-form__contacts-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .feedback-form__contact {
+    margin-bottom: 0;
+
+    &:nth-of-type(odd) {
+      width: 400px;
+    }
+
+    &:nth-of-type(even) {
+      width: 480px;
+    }
+
+    // на случай переполнения
+    &:nth-of-type(n+3) {
+      margin-top: 20px;
+    }
+  }
+
+  .feedback-form__contact-label {
+    margin-left: 0;
+    margin-right: 14px;
+    margin-bottom: 0;
+  }
+
+  .feedback-form__contact-field {
+    width: auto;
+  }
+
+  .feedback-form__hidden-unit {
+    display: none;
+  }
+
+  .feedback-form__landmarks {
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+  }
+
+  .feedback-form__selector--landmark {
+    margin-right: auto;
+    margin-bottom: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    // на случай переполнения
+    &:nth-of-type(n+5) {
+      margin-top: 20px;
+      margin-right: 40px;
+    }
+
+    &:nth-of-type(4n) {
+      margin-right: 0;
+    }
+  }
+}
