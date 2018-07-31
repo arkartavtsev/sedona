@@ -50,61 +50,62 @@
           <p class="intro__text">Укажите требуемые параметры, и&nbsp;мы&nbsp;покажем Вам лучшие предложения&nbsp;отелей в&nbsp;Седоне</p>
         </section>
 
-        <form class="form" id="filter-form" action="https://echo.htmlacademy.ru" method="get">
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Инфраструктура:</legend>
+        <h2 class="visually-hidden">Форма поиска отеля</h2>
+        <form class="form  search-form" id="search-form" action="https://echo.htmlacademy.ru" method="get">
+          <div class="form__group  search-form__column">
+            <h3 class="form__group-title">Инфраструктура:</h3>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="infrastructure-pool" checked>
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Бассейн
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="infrastructure-pool" checked>
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Бассейн</span>
             </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="infrastructure-parking">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Парковка
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="infrastructure-parking">
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Парковка</span>
             </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="infrastructure-wifi">
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Wi-Fi
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="infrastructure-wifi">
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Wi-Fi</span>
             </label>
-          </fieldset>
+          </div>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Тип жилья:</legend>
+          <div class="form__group  search-form__column">
+            <h3 class="form__group-title">Тип жилья:</h3>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="type-hotel" checked>
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Отель
-            </label>
-
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="type-motel" checked>
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Мотель
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="type-hotel" checked>
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Мотель</span>
             </label>
 
-            <label class="form__label  form__label--for-selector  form__label--for-checkbox">
-              <input class="form__checkbox  visually-hidden" type="checkbox" name="type-apartment" checked>
-              <span class="form__selector-replacer  form__selector-replacer--checkbox"></span>
-              Апартаменты
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="type-motel" checked>
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Отель</span>
             </label>
-          </fieldset>
 
-          <fieldset class="form__fields-group  fields-group">
-            <legend class="fields-group__title">Стоимость в сутки &#8381;:</legend>
+            <label class="form__selector  selector">
+              <input class="selector__control  visually-hidden" type="checkbox" name="type-apartment" checked>
+              <span class="selector__control-replacer  selector__control-replacer--checkbox"></span>
+              <span class="selector__caption">Апартаменты</span>
+            </label>
+          </div>
 
-            <div class="form__filed-wrapper">
-              <label class="form__label" for="lower-limit">От</label>
+          <div class="form__group  search-form__cost">
+            <h3 class="form__group-title">Стоимость в сутки, &#8381;:</h3>
+
+            <div class="form__field-wrapper  search-form__cost-field">
+              <label class="form__label" for="lower-limit">От:</label>
               <input class="form__field" id="lower-limit" type="text" name="lower-limit" value="0">
             </div>
 
-            <div class="form__filed-wrapper">
-              <label class="form__label" for="upper-limit">До</label>
+            <div class="form__field-wrapper  search-form__cost-field">
+              <label class="form__label" for="upper-limit">До:</label>
               <input class="form__field" id="upper-limit" type="text" name="upper-limit" value="3000">
             </div>
 
@@ -113,9 +114,10 @@
               <div class="scale__picker  scale__picker--lower-limit" tabindex="0"></div>
               <div class="scale__picker  scale__picker--upper-limit" tabindex="0"></div>
             </div>
-          </fieldset>
 
-          <button class="form__btn  btn" type="submit">Показать</button>
+            <button class="search-form__btn  btn" type="submit">Показать</button>
+          </div>
+
         </form>
 
         <section class="hotels">
@@ -123,7 +125,7 @@
 
           <p class="hotels__search-results">
             Найдено:
-            <output form="filter-form" name="filter-results">3</output>
+            <output form="search-form" name="search-results">3</output>
           </p>
 
           <div class="sort-pane">
