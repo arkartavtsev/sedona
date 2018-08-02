@@ -1,0 +1,36 @@
+.sort-order {
+  display: flex;
+}
+
+.sort-order__control {
+  display: block;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: 12px solid transparent;
+  border-top-width: 0;
+  border-bottom-width: 24px;
+  border-bottom-color: $gray;
+
+  &:hover {
+    border-bottom-color: $light-blue;
+  }
+
+  &:active {
+    border-bottom-color: $dark-gray;
+  }
+
+  &--increase {
+    margin-right: 6px;
+  }
+
+  &--decrease {
+    transform: rotate(180deg);
+  }
+
+  &--current,
+  &--current:hover,
+  &--current:active {
+    border-bottom-color: $light-blue;
+  }
+}

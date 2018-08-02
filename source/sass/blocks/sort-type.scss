@@ -1,0 +1,41 @@
+.sort-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-type__caption {
+  display: none;
+}
+
+.sort-type__control {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dotted $light-blue;
+
+  &:hover {
+    color: $light-blue;
+  }
+
+  &:active {
+    color: $dark-gray;
+  }
+
+  &--current,
+  &--current:hover,
+  &--current:active {
+    color: $light-blue;
+    border-bottom: none;
+    cursor: default;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .sort-type__caption {
+    display: block;
+    margin-right: 14px;
+  }
+
+  .sort-type__control {
+    margin-right: 14px;
+  }
+}

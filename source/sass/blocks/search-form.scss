@@ -1,0 +1,78 @@
+// убрать в общих стилях формы
+.search-form__cost {
+  margin-bottom: 0 !important;
+}
+
+.search-form__btn {
+  width: 100%;
+  margin-top: 20px;
+
+  // унести в общие стили
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (min-width: $tablet-width) {
+  .search-form__column {
+    box-sizing: border-box;
+    width: 40%;
+
+    &:first-of-type {
+      width: 50%;
+      border-right: 1px solid $dark-gray;
+    }
+  }
+
+  .search-form__cost {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .search-form__cost-field {
+    width: 23.92%;
+
+    // убрать в общих стилях формы
+    margin-bottom: 0;
+
+    &:first-of-type {
+      margin-right: 14px;
+    }
+  }
+
+  .search-form__btn {
+    width: 40%;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .search-form__column {
+    width: 240px;
+    border-right: 1px solid $dark-gray;
+
+    // убрать в общих стилях формы
+    margin-bottom: 0;
+
+    &:first-of-type {
+      width: 240px;
+    }
+  }
+
+  .search-form__cost {
+    width: 360px;
+  }
+
+  .search-form__cost-field {
+    width: 173px;
+  }
+
+  .search-form__btn {
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 0;
+  }
+}
