@@ -1007,7 +1007,9 @@
 
 .search-form__btn {
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 22px; }
 
 @media (min-width: 768px) {
   .search-form__column {
@@ -1177,7 +1179,7 @@
 @media (min-width: 1200px) {
   .hotel-card {
     padding: 60px 120px; }
-  .hotel-card__photo {
+  .hotel-card__photo-container {
     margin-right: 60px; } }
 
 .sort-pane {
