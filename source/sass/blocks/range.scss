@@ -1,0 +1,59 @@
+.range {
+  box-sizing: border-box;
+  width: 100%;
+  height: 6px;
+  padding: 0 15px;
+  margin: 13px 0;
+  background-color: $light-gray;
+  border-radius: 2px;
+}
+
+.range__scale {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.range__interval {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: $gray;
+}
+
+.range__picker {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: $dark-gray;
+  border: 12px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px $dark-gray,
+              0 3px 1px 0 rgba($dark-gray, 0.2);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: none;
+
+  // &--lower-limit {
+  //   left: 0%;
+  // }
+  //
+  // &--upper-limit {
+  //   left: 100%;
+  // }
+
+  &--current {
+    z-index: 1;
+  }
+
+  // &:hover {
+  //   transform: translate(-50%, -50%) scale(1.1);
+  // }
+  //
+  // &:active {
+  //   transform: translate(-50%, -50%) scale(0.9);
+  // }
+}

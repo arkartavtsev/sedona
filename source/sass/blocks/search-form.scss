@@ -3,6 +3,10 @@
   margin-bottom: 0 !important;
 }
 
+.search-form__range {
+  width: 100%;
+}
+
 .search-form__btn {
   width: 100%;
   margin-top: 20px;
@@ -34,11 +38,16 @@
     width: 23.92%;
 
     // убрать в общих стилях формы
-    margin-bottom: 0;
+    margin-bottom: 20px;
 
     &:first-of-type {
       margin-right: 14px;
     }
+  }
+
+  .search-form__range {
+    order: 1;
+    width: 50%;
   }
 
   .search-form__btn {
@@ -70,9 +79,14 @@
     width: 173px;
   }
 
+  .search-form__range {
+    order: 0;
+    width: 100%;
+  }
+
   .search-form__btn {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-left: 0;
   }
 }

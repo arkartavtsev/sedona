@@ -101,18 +101,20 @@
 
             <div class="form__field-wrapper  search-form__cost-field">
               <label class="form__label" for="lower-limit">От:</label>
-              <input class="form__field" id="lower-limit" type="text" name="lower-limit" value="0">
+              <input class="form__field" id="lower-limit" type="number" name="lower-limit" value="0" min="0" max="5000" step="50">
             </div>
 
             <div class="form__field-wrapper  search-form__cost-field">
               <label class="form__label" for="upper-limit">До:</label>
-              <input class="form__field" id="upper-limit" type="text" name="upper-limit" value="3000">
+              <input class="form__field" id="upper-limit" type="number" name="upper-limit" value="5000" min="0" max="5000" step="50">
             </div>
 
-            <div class="form__scale  scale">
-              <div class="scale__range"></div>
-              <div class="scale__picker  scale__picker--lower-limit" tabindex="0"></div>
-              <div class="scale__picker  scale__picker--upper-limit" tabindex="0"></div>
+            <div class="search-form__range  range" hidden>
+              <div class="range__scale">
+                <div class="range__interval"></div>
+                <div class="range__picker  range__picker--lower-limit" tabindex="0"></div>
+                <div class="range__picker  range__picker--upper-limit" tabindex="0"></div>
+              </div>
             </div>
 
             <button class="search-form__btn  btn" type="submit">Показать</button>
