@@ -58,6 +58,50 @@
     background-color: #e6e6e6;
     cursor: default; }
 
+.range {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 6px;
+  padding: 0 15px;
+  margin: 13px 0;
+  background-color: #f2f2f2;
+  border-radius: 2px; }
+
+.range__scale {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.range__interval {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #e6e6e6; }
+
+.range__picker {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #d5d5d5;
+  border: 12px solid white;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 1px #d5d5d5, 0 3px 1px 0 rgba(213, 213, 213, 0.2);
+          box-shadow: 0 0 0 1px #d5d5d5, 0 3px 1px 0 rgba(213, 213, 213, 0.2);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+  -ms-touch-action: none;
+      touch-action: none; }
+  .range__picker--current {
+    z-index: 1; }
+
 .page-header {
   display: -ms-flexbox;
   display: flex;
@@ -1005,6 +1049,9 @@
 .search-form__cost {
   margin-bottom: 0 !important; }
 
+.search-form__range {
+  width: 100%; }
+
 .search-form__btn {
   width: 100%;
   margin-top: 20px;
@@ -1029,9 +1076,13 @@
     width: 100%; }
   .search-form__cost-field {
     width: 23.92%;
-    margin-bottom: 0; }
+    margin-bottom: 20px; }
     .search-form__cost-field:first-of-type {
       margin-right: 14px; }
+  .search-form__range {
+    -ms-flex-order: 1;
+        order: 1;
+    width: 50%; }
   .search-form__btn {
     width: 40%;
     margin-top: 0;
@@ -1048,9 +1099,13 @@
     width: 360px; }
   .search-form__cost-field {
     width: 173px; }
+  .search-form__range {
+    -ms-flex-order: 0;
+        order: 0;
+    width: 100%; }
   .search-form__btn {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-left: 0; } }
 
 .hotel-card {
