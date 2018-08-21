@@ -1,0 +1,19 @@
+.menu-btn {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    background-image: repeating-linear-gradient(to bottom, $light-blue 0, $light-blue 5px, white 5px, white 10px);
+  }
+}
