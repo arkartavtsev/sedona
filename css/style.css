@@ -137,11 +137,11 @@
     .page-header__menu-btn--js {
       display: block; }
   .page-header__main-nav {
-    display: none;
     -ms-flex-order: -1;
-        order: -1; }
-    .page-header__main-nav--open {
-      display: block; } }
+        order: -1;
+    overflow-y: hidden;
+    -webkit-transition: height 0.6s ease-in;
+    transition: height 0.6s ease-in; } }
 
 .menu-btn {
   position: relative;
