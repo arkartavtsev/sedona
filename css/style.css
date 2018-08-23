@@ -138,10 +138,12 @@
       display: block; }
   .page-header__main-nav {
     -ms-flex-order: -1;
-        order: -1;
-    overflow-y: hidden;
-    -webkit-transition: height 0.6s ease-in;
-    transition: height 0.6s ease-in; } }
+        order: -1; }
+    .page-header__main-nav--js {
+      height: 0;
+      overflow-y: hidden;
+      -webkit-transition: height 0.6s ease-in;
+      transition: height 0.6s ease-in; } }
 
 .menu-btn {
   position: relative;
