@@ -61,17 +61,17 @@
 
             <div class="form__field-wrapper">
               <label class="form__label" for="author-name">Имя*:</label>
-              <input class="form__field" id="author-name" type="text" name="author-name" placeholder="Петр">
+              <input class="form__field" id="author-name" type="text" name="author-name" placeholder="Петр" pattern="[а-яёА-ЯЁa-zA-Z -]+" title="Имя русскими или латинскими буквами" required>
             </div>
 
             <div class="form__field-wrapper">
               <label class="form__label" for="author-surname">Фамилия*:</label>
-              <input class="form__field" id="author-surname" type="text" name="author-surname" placeholder="Иванов">
+              <input class="form__field" id="author-surname" type="text" name="author-surname" placeholder="Иванов" pattern="[а-яёА-ЯЁa-zA-Z -]+" title="Фамилия русскими или латинскими буквами" required>
             </div>
 
             <div class="form__field-wrapper">
               <label class="form__label" for="author-patronymic">Отчество:</label>
-              <input class="form__field" id="author-patronymic" type="text" name="author-patronymic" placeholder="Александрович">
+              <input class="form__field" id="author-patronymic" type="text" name="author-patronymic" pattern="[а-яёА-ЯЁa-zA-Z -]+" pattern="[а-яёА-ЯЁa-zA-Z\s-]+" title="Отчество русскими или латинскими буквами" placeholder="Александрович">
             </div>
           </div>
 
@@ -82,12 +82,12 @@
               <label class="form__label  feedback-form__contact-label" for="author-tel">
                 <span class="feedback-form__hidden-unit">Контактный</span>
                 телефон*:</label>
-              <input class="form__field  feedback-form__contact-field" id="author-tel" type="tel" name="author-tel" placeholder="+7-9XX-XXX-XXXX">
+              <input class="form__field  feedback-form__contact-field" id="author-tel" type="tel" name="author-tel" placeholder="+7-9XX-XXX-XXXX" pattern="\+7-9[0-9]{2}-[0-9]{3}-[0-9]{4}" title="+7-9XX-XXX-XXXX" required>
             </div>
 
             <div class="form__field-wrapper  feedback-form__contact  feedback-form__contact--email">
               <label class="form__label  feedback-form__contact-label" for="author-email">Электронная почта*:</label>
-              <input class="form__field  feedback-form__contact-field" id="author-email" type="email" name="author-email" placeholder="mail@domain.name">
+              <input class="form__field  feedback-form__contact-field" id="author-email" type="email" name="author-email" placeholder="mail@domain.name" pattern="[a-zA-Z]{1}([a-zA-Z0-9\-_\.]{1,})?[a-zA-Z0-9]{1}@[a-zA-Z]{1}([a-zA-Z0-9.]{1,})?[a-zA-Z0-9]{1}\.[a-zA-Z]{2,}" title="mail@domain.name" required>
             </div>
           </div>
 
