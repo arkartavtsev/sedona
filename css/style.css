@@ -488,6 +488,8 @@
     background-color: white;
     border-color: #e6e6e6;
     outline: none; }
+  .form__field--invalid {
+    outline: 2px solid red; }
   .form__field::-webkit-input-placeholder {
     color: black;
     opacity: 1; }
