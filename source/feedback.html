@@ -71,7 +71,7 @@
 
             <div class="form__field-wrapper">
               <label class="form__label" for="author-patronymic">Отчество:</label>
-              <input class="form__field" id="author-patronymic" type="text" name="author-patronymic" pattern="[а-яёА-ЯЁa-zA-Z -]+" pattern="[а-яёА-ЯЁa-zA-Z\s-]+" title="Отчество русскими или латинскими буквами" placeholder="Александрович">
+              <input class="form__field" id="author-patronymic" type="text" name="author-patronymic" pattern="[а-яёА-ЯЁa-zA-Z -]+" title="Отчество русскими или латинскими буквами" placeholder="Александрович">
             </div>
           </div>
 
@@ -196,6 +196,14 @@
       </footer>
 
     </div>
+
+    <div class="popup" hidden>
+      <h2 class="popup__title">Заголовок сообщения</h2>
+      <p class="popup__text">Текст сообщения</p>
+      <button class="popup__btn btn" type="button">Ок</button>
+    </div>
+
+    <div class="overlay" hidden></div>
 
     <script src="js/script.js"></script>
   </body>
