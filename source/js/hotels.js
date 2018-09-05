@@ -18,6 +18,9 @@
     };
 
 
+    var hotels;
+
+
     // IE <template> polyfill
     var getTemplateContent = function (template) {
       if ('content' in document.createElement('template')) {
@@ -34,6 +37,16 @@
       }
     };
 
+    // IE forEach polyfill
+    if ('NodeList' in window && !NodeList.prototype.forEach) {
+      NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+          callback.call(thisArg, this[i], i, this);
+        }
+      };
+    }
+
 
     var template = document.querySelector('#hotel');
     var templateContent = getTemplateContent(template);
@@ -47,6 +60,15 @@
     var popupTitle = popup.querySelector('.popup__title');
     var popupText = popup.querySelector('.popup__text');
     var popupBtn = popup.querySelector('.popup__btn');
+
+
+    var searchForm = document.querySelector('.search-form');
+    var typeSelectors = searchForm.querySelectorAll('input[type="checkbox"][name^="type-"]');
+    var infrastructureSelectors = searchForm.querySelectorAll('input[type="checkbox"][name^="infrastructure-"]');
+    var lowerLimitField = searchForm.querySelector('#lower-limit');
+    var upperLimitField = searchForm.querySelector('#upper-limit');
+    var searchBtn = searchForm.querySelector('.search-form__btn');
+    var searchResults = document.querySelector('output[name="search-results"]');
 
 
     var createStars = function (count) {
@@ -83,11 +105,11 @@
       return anotherHotel;
     };
 
-    var renderHotels = function (hotels) {
+    var renderHotels = function (hotelsToRender) {
       var fragment = document.createDocumentFragment();
 
-      for (var i = 0; i < hotels.length; i++) {
-        fragment.appendChild(createAnotherHotel(hotels[i]));
+      for (var i = 0; i < hotelsToRender.length; i++) {
+        fragment.appendChild(createAnotherHotel(hotelsToRender[i]));
       }
 
       container.innerHTML = '';
@@ -130,8 +152,8 @@
         switch (xhr.status) {
           case ResponseCode.SUCCESS:
             // IE не поддерживает xhr.responseType = 'json'
-            var response = JSON.parse(xhr.response);
-            renderHotels(response);
+            hotels = JSON.parse(xhr.response);
+            showHotels();
             break;
           case ResponseCode.BAD_REQUEST:
             openPopup('Неверный запрос.');
@@ -160,8 +182,67 @@
     };
 
 
-    popup.hidden = false;
+    var showHotels = function () {
+      var hotelsToRender = [];
+      var constraints = {
+        type: [],
+        features: {}
+      };
 
+      typeSelectors.forEach(function (selector) {
+        if (selector.checked) {
+          constraints.type.push(selector.dataset.name);
+        }
+      });
+
+      infrastructureSelectors.forEach(function (selector) {
+        if (selector.checked) {
+          constraints.features[selector.dataset.name] = true;
+        } else {
+          constraints.features[selector.dataset.name] = false;
+        }
+      });
+
+      if (hotels) {
+        hotels.forEach(function (hotel) {
+          var isMatch = true;
+
+          if (constraints.type.indexOf(hotel.type) === -1 || hotel.cost < lowerLimitField.value || hotel.cost > upperLimitField.value) {
+            isMatch = false;
+          }
+
+          for (var key in constraints.features) {
+            if (constraints.features[key] && constraints.features[key] !== hotel.features[key]) {
+              isMatch = false;
+            }
+          }
+
+          if (isMatch) {
+            hotelsToRender.push(hotel);
+          }
+        });
+      }
+
+      searchResults.textContent = hotelsToRender.length;
+      renderHotels(hotelsToRender);
+
+      if (!hotelsToRender.length) {
+        var message = document.createElement('p');
+        message.textContent = 'Не удалось найти ни одного отеля. Измените критерии поиска.';
+        message.classList.add('hotels__search-error');
+        container.appendChild(message);
+      }
+    };
+
+    var onSearchBtnClick = function (evt) {
+      evt.preventDefault();
+      showHotels();
+    };
+
+
+    popup.hidden = false;
     loadHotelsData();
+
+    searchBtn.addEventListener('click', onSearchBtnClick);
   }
 })();

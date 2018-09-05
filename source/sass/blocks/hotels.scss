@@ -1,0 +1,18 @@
+.hotels__search-error {
+  padding: 40px $mobile-padding;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid $gray;
+}
+
+@media (min-width: $tablet-width) {
+  .hotels__search-error {
+    padding: 60px $tablet-padding;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .hotels__search-error {
+    padding: 80px 120px;
+  }
+}
