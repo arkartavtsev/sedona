@@ -1198,6 +1198,20 @@
     margin-top: 50px;
     margin-left: 0; } }
 
+.hotels__search-error {
+  padding: 40px 6.25%;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6; }
+
+@media (min-width: 768px) {
+  .hotels__search-error {
+    padding: 60px 7.8125%; } }
+
+@media (min-width: 1200px) {
+  .hotels__search-error {
+    padding: 80px 120px; } }
+
 .hotel-card {
   padding: 6.25%;
   border-bottom: 1px solid #e6e6e6; }

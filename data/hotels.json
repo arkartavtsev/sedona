@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Amara Resort & Spa",
+    "type": "Отель",
+    "category": 3,
+    "rating": 8.5,
+    "cost": 4000,
+    "features": {
+      "pool": true,
+      "parking": false,
+      "wifi": true
+    }
+  }, {
+    "id": 2,
+    "title": "Desert Quail Inn",
+    "type": "Мотель",
+    "category": 2,
+    "rating": 8.9,
+    "cost": 2000,
+    "features": {
+      "pool": false,
+      "parking": true,
+      "wifi": false
+    }
+  }, {
+    "id": 3,
+    "title": "Villas At Poco Diablo",
+    "type": "Апартаменты",
+    "category": 4,
+    "rating": 9.2,
+    "cost": 5000,
+    "features": {
+      "pool": true,
+      "parking": true,
+      "wifi": true
+    }
+  }
+]
