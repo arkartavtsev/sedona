@@ -1392,7 +1392,12 @@
 .sort-type__control {
   text-decoration: none;
   color: inherit;
-  border-bottom: 1px dotted #81b3d2; }
+  border-bottom: 1px dotted #81b3d2;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   .sort-type__control:hover {
     color: #81b3d2; }
   .sort-type__control:active {
@@ -1421,7 +1426,12 @@
   border: 12px solid transparent;
   border-top-width: 0;
   border-bottom-width: 24px;
-  border-bottom-color: #e6e6e6; }
+  border-bottom-color: #e6e6e6;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   .sort-order__control:hover {
     border-bottom-color: #81b3d2; }
   .sort-order__control:active {
@@ -1432,7 +1442,8 @@
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg); }
   .sort-order__control--current, .sort-order__control--current:hover, .sort-order__control--current:active {
-    border-bottom-color: #81b3d2; }
+    border-bottom-color: #81b3d2;
+    cursor: default; }
 
 .feedback-form__contact {
   position: relative; }
