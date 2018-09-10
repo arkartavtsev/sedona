@@ -11,6 +11,8 @@
   text-decoration: none;
   color: inherit;
   border-bottom: 1px dotted $light-blue;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     color: $light-blue;

@@ -19,6 +19,7 @@
 
 
     var hotels;
+    var hotelsToShow = [];
 
 
     // IE <template> polyfill
@@ -68,7 +69,18 @@
     var lowerLimitField = searchForm.querySelector('#lower-limit');
     var upperLimitField = searchForm.querySelector('#upper-limit');
     var searchBtn = searchForm.querySelector('.search-form__btn');
-    var searchResults = document.querySelector('output[name="search-results"]');
+
+
+    var sortPane = document.querySelector('.sort-pane');
+    var searchResults = sortPane.querySelector('output[name="search-results"]');
+
+    var sortTypeGroup = sortPane.querySelector('.sort-pane__sort-type');
+    var sortTypeBtns = sortTypeGroup.querySelectorAll('.sort-type__control');
+    var currentSortBtn = sortTypeGroup.querySelector('.sort-type__control--current');
+
+    var sortOrderGroup = sortPane.querySelector('.sort-pane__sort-order');
+    var sortOrderBtns = sortOrderGroup.querySelectorAll('.sort-order__control');
+    var currentOrderBtn = sortOrderGroup.querySelector('.sort-order__control--current');
 
 
     var createStars = function (count) {
@@ -183,7 +195,7 @@
 
 
     var showHotels = function () {
-      var hotelsToRender = [];
+      hotelsToShow = [];
       var constraints = {
         type: [],
         features: {}
@@ -218,15 +230,15 @@
           }
 
           if (isMatch) {
-            hotelsToRender.push(hotel);
+            hotelsToShow.push(hotel);
           }
         });
       }
 
-      searchResults.textContent = hotelsToRender.length;
-      renderHotels(hotelsToRender);
+      searchResults.textContent = hotelsToShow.length;
+      sortHotels();
 
-      if (!hotelsToRender.length) {
+      if (!hotelsToShow.length) {
         var message = document.createElement('p');
         message.textContent = 'Не удалось найти ни одного отеля. Измените критерии поиска.';
         message.classList.add('hotels__search-error');
@@ -240,9 +252,104 @@
     };
 
 
+    var DEBOUNCE_INTERVAL = 500;
+
+    var lastTimeout;
+
+    var removeDebounce = function (callback) {
+      if (lastTimeout) {
+        clearTimeout(lastTimeout);
+      }
+
+      lastTimeout = setTimeout(callback, DEBOUNCE_INTERVAL);
+    };
+
+
+    var orderNumericValues = function (left, right) {
+      switch (currentOrderBtn.dataset.name) {
+        case 'by-increase':
+          return left - right;
+        case 'by-decrease':
+          return right - left;
+        default:
+          return 0;
+      }
+    };
+
+
+    var sortByCost = function () {
+      hotelsToShow.sort(function (left, right) {
+        return orderNumericValues(left.cost, right.cost);
+      });
+    };
+
+    var sortByStars = function () {
+      hotelsToShow.sort(function (left, right) {
+        return orderNumericValues(left.category, right.category);
+      });
+    };
+
+    var sortByRating = function () {
+      hotelsToShow.sort(function (left, right) {
+        return orderNumericValues(left.rating, right.rating);
+      });
+    };
+
+
+    var sortHotels = function () {
+      switch (currentSortBtn.dataset.name) {
+        case 'by-cost':
+          sortByCost();
+          break;
+        case 'by-stars':
+          sortByStars();
+          break;
+        case 'by-rating':
+          sortByRating();
+          break;
+      }
+
+      renderHotels(hotelsToShow);
+    };
+
+
+    var onSortTypeBtnClick = function (evt) {
+      evt.preventDefault();
+
+      if (evt.target !== currentSortBtn) {
+        currentSortBtn.classList.remove('sort-type__control--current');
+        evt.target.classList.add('sort-type__control--current');
+        currentSortBtn = evt.target;
+
+        removeDebounce(sortHotels);
+      }
+    };
+
+    var onSortOrderBtnClick = function (evt) {
+      evt.preventDefault();
+
+      if (evt.target !== currentOrderBtn) {
+        currentOrderBtn.classList.remove('sort-order__control--current');
+        evt.target.classList.add('sort-order__control--current');
+        currentOrderBtn = evt.target;
+
+        removeDebounce(sortHotels);
+      }
+    };
+
+
     popup.hidden = false;
     loadHotelsData();
 
+
     searchBtn.addEventListener('click', onSearchBtnClick);
+
+    sortTypeBtns.forEach(function (btn) {
+      btn.addEventListener('click', onSortTypeBtnClick);
+    });
+
+    sortOrderBtns.forEach(function (btn) {
+      btn.addEventListener('click', onSortOrderBtnClick);
+    });
   }
 })();
