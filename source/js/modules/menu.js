@@ -1,16 +1,18 @@
 'use strict';
 
+
 (function () {
   var headerBar = document.querySelector('.page-header__bar');
+  var menu = document.querySelector('.main-nav');
 
-  if (headerBar) {
+
+  if (headerBar && menu) {
     var menuBtn = headerBar.querySelector('.menu-btn');
-    var menu = document.querySelector('.main-nav');
     var menuHeight = menu.scrollHeight + 'px';
+
 
     var onMenuBtnClick = function (evt) {
       evt.preventDefault();
-
       menu.style.height = (menu.offsetHeight === 0) ? menuHeight : 0;
     };
 

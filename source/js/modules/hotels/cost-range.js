@@ -1,14 +1,16 @@
 'use strict';
 
+
 (function () {
   var costRange = document.querySelector('.search-form__range');
 
+
   if (costRange) {
-    // WARNING: поменять отступы в стилях
     costRange.hidden = false;
 
 
     var COST_STEP = 50;
+
 
     var rangeScale = costRange.querySelector('.range__scale');
 

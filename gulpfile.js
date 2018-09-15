@@ -13,7 +13,6 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cssMinify = require('gulp-csso');
 
-var jsConcat = require('gulp-concat');
 var jsMinify = require('gulp-uglify');
 
 var imgMinify = require('gulp-imagemin');
@@ -64,8 +63,13 @@ gulp.task('style', function () {
 gulp.task('script', function () {
   return gulp.src('source/js/**/*.js')
     .pipe(plumber())
-    .pipe(jsConcat('script.js'))
-    .pipe(jsMinify('script.js'))
+    .pipe(include())
+    .pipe(gulp.dest('build/js'))
+});
+
+gulp.task('script-minify', function () {
+  return gulp.src('build/js/script.js')
+    .pipe(jsMinify())
     .pipe(gulp.dest('build/js'))
 });
 
@@ -122,6 +126,7 @@ gulp.task('build', function (done) {
     'html',
     'style',
     'script',
+    'script-minify',
     'images',
     'webp',
     'sprite',
@@ -133,10 +138,7 @@ gulp.task('build', function (done) {
 gulp.task('serve', function () {
   server.init({
     browser: [
-      'chrome',
-      'firefox',
-      'microsoft-edge:http://localhost:3000',
-      'iexplore'
+      'chrome'
     ],
     server: 'build/',
     tunnel: 'sedona',

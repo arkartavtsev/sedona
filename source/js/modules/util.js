@@ -1,0 +1,35 @@
+'use strict';
+
+
+(function () {
+  // IE forEach polyfill
+  if ('NodeList' in window && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+      for (var i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  }
+
+  // IE <template> polyfill
+  var getTemplateContent = function (template) {
+    if ('content' in document.createElement('template')) {
+      return document.importNode(template.content, true);
+    } else {
+      var fragment = document.createDocumentFragment();
+      var children = template.childNodes;
+
+      for (var i = 0; i < children.length; i++) {
+        fragment.appendChild(children[i].cloneNode(true));
+      }
+
+      return fragment;
+    }
+  };
+
+
+  window.util = {
+    getTemplateContent: getTemplateContent
+  };
+})();
