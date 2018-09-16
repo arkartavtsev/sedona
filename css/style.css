@@ -149,8 +149,32 @@
   color: #333333; }
 
 .popup__btn {
-  width: 180px;
   margin: 0 auto; }
+
+.popup__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer; }
+  .popup__close-btn:after, .popup__close-btn:before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 0px;
+    width: 30px;
+    height: 3px;
+    background-color: #d5d5d5; }
+  .popup__close-btn:after {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); }
+  .popup__close-btn:before {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
 
 @media (min-width: 768px) {
   .popup {

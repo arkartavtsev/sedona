@@ -4,6 +4,7 @@
 (function () {
   var mapContainer = document.querySelector('.sedona-location');
 
+
   window.initMap = function () {
     if (mapContainer) {
       var CENTER_COORDS = {
@@ -13,6 +14,7 @@
 
 
       var map = mapContainer.querySelector('#map');
+
       var mapProperties = {
         center: CENTER_COORDS,
         zoom: 8,
@@ -24,10 +26,12 @@
 
       var sedonaMap = new google.maps.Map(map, mapProperties);
 
+
       var markerIcon = {
         url: 'img/icon-map-marker.svg',
         scaledSize: new google.maps.Size(25, 25)
       };
+
       var markerProperties = {
         position: CENTER_COORDS,
         map: sedonaMap,
