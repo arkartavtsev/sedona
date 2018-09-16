@@ -7,31 +7,57 @@
 
   if (feedbackForm) {
     var URL = 'https://echo.htmlacademy.ru';
+    var RELOAD_TIMEOUT = 1000;
 
-    var Message = {
-      Title: {
-        SUCCESS: 'Ваш отзыв отправлен!',
-        ERROR: 'Что-то пошло не так!'
+    var Popup = {
+      SuccessLoad: {
+        TITLE: 'Ваш отзыв отправлен!',
+        TEXT: 'Спасибо за Ваше участие, Ваш отзыв уже поступил к нам. Мы обязательно учтём все Ваши замечания!',
+        BTN_TEXT: 'Ок'
       },
-      Text: {
-        SUCCESS: 'Спасибо за Ваше участие, Ваш отзыв уже поступил к нам. Мы обязательно учтём все Ваши замечания!',
-        ERROR: 'К сожалению, Ваш отзыв не был отправлен. '
+      ErrorLoad: {
+        TITLE: 'Что-то пошло не так!',
+        TEXT: 'К сожалению, Ваш отзыв не был отправлен. ',
+        BTN_TEXT: 'Ещё раз'
       }
     };
 
 
     var feedbackBtn = feedbackForm.querySelector('.feedback-form__btn');
 
+    var popupBtn = document.querySelector('.popup__btn');
+
+
+    var onSuccessPopupBtnClick = function () {
+      window.popup.close();
+
+      popupBtn.removeEventListener('click', onSuccessPopupBtnClick);
+    };
+
+    var onErrorPopupBtnClick = function () {
+      window.popup.close();
+
+      setTimeout(function () {
+        window.backend.upload(new FormData(feedbackForm), URL, sendForm, showError);
+      }, RELOAD_TIMEOUT);
+
+      popupBtn.removeEventListener('click', onErrorPopupBtnClick);
+    };
+
 
     var sendForm = function () {
       feedbackBtn.disabled = false;
-      window.popup.open(Message.Title.SUCCESS, Message.Text.SUCCESS);
+      window.popup.open(Popup.SuccessLoad.TITLE, Popup.SuccessLoad.TEXT, Popup.SuccessLoad.BTN_TEXT);
       feedbackForm.reset();
+
+      popupBtn.addEventListener('click', onSuccessPopupBtnClick);
     };
 
     var showError = function (serverStatusText) {
       feedbackBtn.disabled = false;
-      window.popup.open(Message.Title.ERROR, Message.Text.ERROR + serverStatusText);
+      window.popup.open(Popup.ErrorLoad.TITLE, Popup.ErrorLoad.TEXT + serverStatusText, Popup.ErrorLoad.BTN_TEXT);
+
+      popupBtn.addEventListener('click', onErrorPopupBtnClick);
     };
 
 

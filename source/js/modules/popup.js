@@ -12,7 +12,8 @@
 
     var popupTitle = popup.querySelector('.popup__title');
     var popupText = popup.querySelector('.popup__text');
-    var popupBtn = popup.querySelector('.popup__btn');
+    var mainBtn = popup.querySelector('.popup__btn');
+    var closeBtn = popup.querySelector('.popup__close-btn');
 
 
     var onPopupEscPress = function (evt) {
@@ -26,16 +27,17 @@
       overlay.hidden = true;
       popup.classList.remove('popup--shown');
 
-      popupBtn.removeEventListener('click', closePopup);
+      closeBtn.removeEventListener('click', closePopup);
       overlay.removeEventListener('click', closePopup);
       document.removeEventListener('keydown', onPopupEscPress);
     };
 
-    var openPopup = function (title, text) {
+    var openPopup = function (title, text, btnText) {
       popupTitle.textContent = title;
       popupText.textContent = text;
+      mainBtn.textContent = btnText;
 
-      popupBtn.addEventListener('click', closePopup);
+      closeBtn.addEventListener('click', closePopup);
       overlay.addEventListener('click', closePopup);
       document.addEventListener('keydown', onPopupEscPress);
 

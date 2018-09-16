@@ -8,10 +8,12 @@
 
   if (searchForm && sortPane) {
     var URL = 'data/hotels.json';
+    var RELOAD_TIMEOUT = 1000;
 
-    var ErrorMessage = {
+    var ErrorPopup = {
       TITLE: 'Что-то пошло не так!',
-      TEXT: 'Не удалось загрузить список отелей. '
+      TEXT: 'Не удалось загрузить список отелей. ',
+      BTN_TEXT: 'Ещё раз'
     };
 
 
@@ -29,10 +31,23 @@
     var sortOrderBtns = sortOrderGroup.querySelectorAll('.sort-order__control');
     var currentOrderBtn = sortOrderGroup.querySelector('.sort-order__control--current');
 
+    var popupBtn = document.querySelector('.popup__btn');
+
 
     var showHotelsUnserConstraints = function () {
       searchConstraints = window.specifyConstraints();
       window.showHotels(loadedHotels, searchConstraints);
+    };
+
+
+    var onPopupBtnClick = function () {
+      window.popup.close();
+
+      setTimeout(function () {
+        window.backend.download(URL, loadHotels, showError);
+      }, RELOAD_TIMEOUT);
+
+      popupBtn.removeEventListener('click', onPopupBtnClick);
     };
 
 
@@ -44,7 +59,9 @@
     };
 
     var showError = function (serverStatusText) {
-      window.popup.open(ErrorMessage.TITLE, ErrorMessage.TEXT + serverStatusText);
+      window.popup.open(ErrorPopup.TITLE, ErrorPopup.TEXT + serverStatusText, ErrorPopup.BTN_TEXT);
+
+      popupBtn.addEventListener('click', onPopupBtnClick);
     };
 
 
