@@ -7,9 +7,6 @@
 
 
   if (popup && overlay) {
-    var ESC_KEYCODE = 27;
-
-
     var popupTitle = popup.querySelector('.popup__title');
     var popupText = popup.querySelector('.popup__text');
     var mainBtn = popup.querySelector('.popup__btn');
@@ -17,7 +14,7 @@
 
 
     var onPopupEscPress = function (evt) {
-      if (evt.keyCode === ESC_KEYCODE) {
+      if (evt.keyCode === window.util.KeyCode.ESC) {
         evt.preventDefault();
         closePopup();
       }
