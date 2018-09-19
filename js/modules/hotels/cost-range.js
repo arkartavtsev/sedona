@@ -19,44 +19,37 @@
       right: rangeScale.getBoundingClientRect().right
     };
 
-    var rangeLevel = costRange.querySelector('.range__interval');
+    var pickedRange = costRange.querySelector('.range__interval');
 
     var lowerLimitPicker = costRange.querySelector('.range__picker--lower-limit');
     var upperLimitPicker = costRange.querySelector('.range__picker--upper-limit');
-
-    var limitPickerHalf = lowerLimitPicker.offsetWidth / 2;
 
     var lowerLimitField = document.querySelector('#lower-limit');
     var upperLimitField = document.querySelector('#upper-limit');
 
 
-    var assignCurrentPin = function (pin) {
-      var currentPin = costRange.querySelector('.range__picker--current');
-
-      if (currentPin) {
-        currentPin.classList.remove('range__picker--current');
-      }
-
-      pin.classList.add('range__picker--current');
+    var getPinCenterCoordinate = function (pin) {
+      return pin.getBoundingClientRect().left + pin.offsetWidth / 2;
     };
 
-    var getPinPosition = function (cursorPosition, leftEdge, rightEdge) {
+
+    var getPinPosition = function (coordinate, leftEdge, rightEdge) {
       var pinPosition;
 
-      if (cursorPosition < leftEdge) {
+      if (coordinate < leftEdge) {
         pinPosition = leftEdge - scaleEdge.left;
-      } else if (cursorPosition > rightEdge) {
+      } else if (coordinate > rightEdge) {
         pinPosition = rightEdge - scaleEdge.left;
       } else {
-        pinPosition = cursorPosition - scaleEdge.left;
+        pinPosition = coordinate - scaleEdge.left;
       }
 
       return pinPosition;
     };
 
     var showPickedRange = function () {
-      rangeLevel.style.left = lowerLimitPicker.style.left;
-      rangeLevel.style.right = 100 - parseInt(upperLimitPicker.style.left, 10) + '%';
+      pickedRange.style.left = lowerLimitPicker.style.left;
+      pickedRange.style.right = 100 - parseInt(upperLimitPicker.style.left, 10) + '%';
     };
 
     var changeLimitUnderPosition = function (position, limitPicker, limitField) {
@@ -69,11 +62,21 @@
     };
 
 
+    var assignCurrentPin = function (pin) {
+      var currentPin = costRange.querySelector('.range__picker--current');
+
+      if (currentPin) {
+        currentPin.classList.remove('range__picker--current');
+      }
+
+      pin.classList.add('range__picker--current');
+      pin.focus();
+    };
+
+
     var onLowerLimitPickerMouseDown = function () {
       var onLowerLimitPickerMouseMove = function (evt) {
-        var leftEdge = scaleEdge.left;
-        var rightEdge = upperLimitPicker.getBoundingClientRect().left + limitPickerHalf;
-        var pinPosition = getPinPosition(evt.clientX, leftEdge, rightEdge);
+        var pinPosition = getPinPosition(evt.clientX, scaleEdge.left, getPinCenterCoordinate(upperLimitPicker));
 
         changeLimitUnderPosition(pinPosition, lowerLimitPicker, lowerLimitField);
       };
@@ -91,9 +94,7 @@
 
     var onLowerLimitPickerTouchStart = function () {
       var onLowerLimitPickerTouchMove = function (evt) {
-        var leftEdge = scaleEdge.left;
-        var rightEdge = upperLimitPicker.getBoundingClientRect().left + limitPickerHalf;
-        var pinPosition = getPinPosition(evt.touches[0].clientX, leftEdge, rightEdge);
+        var pinPosition = getPinPosition(evt.touches[0].clientX, scaleEdge.left, getPinCenterCoordinate(upperLimitPicker));
 
         changeLimitUnderPosition(pinPosition, lowerLimitPicker, lowerLimitField);
       };
@@ -112,9 +113,7 @@
 
     var onUpperLimitPickerMouseDown = function () {
       var onUpperLimitPickerMouseMove = function (evt) {
-        var leftEdge = lowerLimitPicker.getBoundingClientRect().right - limitPickerHalf;
-        var rightEdge = scaleEdge.right;
-        var pinPosition = getPinPosition(evt.clientX, leftEdge, rightEdge);
+        var pinPosition = getPinPosition(evt.clientX, getPinCenterCoordinate(lowerLimitPicker), scaleEdge.right);
 
         changeLimitUnderPosition(pinPosition, upperLimitPicker, upperLimitField);
       };
@@ -132,9 +131,7 @@
 
     var onUpperLimitPickerTouchStart = function () {
       var onUpperLimitPickerTouchMove = function (evt) {
-        var leftEdge = lowerLimitPicker.getBoundingClientRect().right - limitPickerHalf;
-        var rightEdge = scaleEdge.right;
-        var pinPosition = getPinPosition(evt.touches[0].clientX, leftEdge, rightEdge);
+        var pinPosition = getPinPosition(evt.touches[0].clientX, getPinCenterCoordinate(lowerLimitPicker), scaleEdge.right);
 
         changeLimitUnderPosition(pinPosition, upperLimitPicker, upperLimitField);
       };
@@ -148,6 +145,51 @@
 
       document.addEventListener('touchmove', onUpperLimitPickerTouchMove);
       document.addEventListener('touchend', onUpperLimitPickerTouchEnd);
+    };
+
+
+    var changeCoordinateByArrow = function (evt, pin) {
+      var coordinate = getPinCenterCoordinate(pin);
+
+      switch (evt.keyCode) {
+        case window.util.KeyCode.LEFT_ARROW:
+          coordinate -= rangeScale.offsetWidth / 100;
+          break;
+        case window.util.KeyCode.RIGHT_ARROW:
+          coordinate += rangeScale.offsetWidth / 100;
+          break;
+      }
+
+      return coordinate;
+    };
+
+
+    var onLimitPickerKeydown = function (evt, constraints, limitPicker, limitField) {
+      if (evt.keyCode === window.util.KeyCode.LEFT_ARROW || evt.keyCode === window.util.KeyCode.RIGHT_ARROW) {
+        var coordinate = changeCoordinateByArrow(evt, limitPicker);
+
+        var pinPosition = getPinPosition(coordinate, constraints.left, constraints.right);
+
+        assignCurrentPin(limitPicker);
+        changeLimitUnderPosition(pinPosition, limitPicker, limitField);
+      }
+    };
+
+
+    var onRangeScaleClick = function (evt) {
+      if (evt.target === rangeScale || evt.target === pickedRange) {
+        var pickedRangeCenterCoordinate = pickedRange.getBoundingClientRect().left + pickedRange.offsetWidth / 2;
+
+        if (evt.clientX < getPinCenterCoordinate(lowerLimitPicker) || evt.clientX <= pickedRangeCenterCoordinate) {
+          assignCurrentPin(lowerLimitPicker);
+          changeLimitUnderPosition(evt.clientX - scaleEdge.left, lowerLimitPicker, lowerLimitField);
+        }
+
+        if (evt.clientX > getPinCenterCoordinate(upperLimitPicker) || evt.clientX > pickedRangeCenterCoordinate) {
+          assignCurrentPin(upperLimitPicker);
+          changeLimitUnderPosition(evt.clientX - scaleEdge.left, upperLimitPicker, upperLimitField);
+        }
+      }
     };
 
 
@@ -176,8 +218,29 @@
     lowerLimitPicker.addEventListener('mousedown', onLowerLimitPickerMouseDown);
     lowerLimitPicker.addEventListener('touchstart', onLowerLimitPickerTouchStart);
 
+    lowerLimitPicker.addEventListener('keydown', function (evt) {
+      var Constraints = {
+        left: scaleEdge.left,
+        right: getPinCenterCoordinate(upperLimitPicker)
+      };
+
+      onLimitPickerKeydown(evt, Constraints, lowerLimitPicker, lowerLimitField);
+    });
+
     upperLimitPicker.addEventListener('mousedown', onUpperLimitPickerMouseDown);
     upperLimitPicker.addEventListener('touchstart', onUpperLimitPickerTouchStart);
+
+    upperLimitPicker.addEventListener('keydown', function (evt) {
+      var Constraints = {
+        left: getPinCenterCoordinate(lowerLimitPicker),
+        right: scaleEdge.right
+      };
+
+      onLimitPickerKeydown(evt, Constraints, upperLimitPicker, upperLimitField);
+    });
+
+
+    rangeScale.addEventListener('click', onRangeScaleClick);
 
 
     lowerLimitField.addEventListener('change', function () {

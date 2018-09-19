@@ -2,6 +2,13 @@
 
 
 (function () {
+  var KeyCode = {
+    LEFT_ARROW: 37,
+    RIGHT_ARROW: 39,
+    ESC: 27
+  };
+
+
   // IE forEach polyfill
   if ('NodeList' in window && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = function (callback, thisArg) {
@@ -30,6 +37,7 @@
 
 
   window.util = {
+    KeyCode: KeyCode,
     getTemplateContent: getTemplateContent
   };
 })();
