@@ -70,6 +70,7 @@
       }
 
       pin.classList.add('range__picker--current');
+      pin.focus();
     };
 
 
@@ -175,6 +176,23 @@
     };
 
 
+    var onRangeScaleClick = function (evt) {
+      if (evt.target === rangeScale || evt.target === pickedRange) {
+        var pickedRangeCenterCoordinate = pickedRange.getBoundingClientRect().left + pickedRange.offsetWidth / 2;
+
+        if (evt.clientX < getPinCenterCoordinate(lowerLimitPicker) || evt.clientX <= pickedRangeCenterCoordinate) {
+          assignCurrentPin(lowerLimitPicker);
+          changeLimitUnderPosition(evt.clientX - scaleEdge.left, lowerLimitPicker, lowerLimitField);
+        }
+
+        if (evt.clientX > getPinCenterCoordinate(upperLimitPicker) || evt.clientX > pickedRangeCenterCoordinate) {
+          assignCurrentPin(upperLimitPicker);
+          changeLimitUnderPosition(evt.clientX - scaleEdge.left, upperLimitPicker, upperLimitField);
+        }
+      }
+    };
+
+
     var onLimitFieldChange = function (field, picker, lowerLimit, upperLimit) {
       if (parseInt(field.value, 10) <= parseInt(lowerLimit, 10)) {
         field.value = lowerLimit;
@@ -220,6 +238,9 @@
 
       onLimitPickerKeydown(evt, Constraints, upperLimitPicker, upperLimitField);
     });
+
+
+    rangeScale.addEventListener('click', onRangeScaleClick);
 
 
     lowerLimitField.addEventListener('change', function () {
