@@ -6,8 +6,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     background-color: $gray;
     background-position: 50% 50%;
     background-size: 18px 18px;
@@ -46,19 +46,22 @@
 
 
 @media (min-width: $tablet-width) {
+  .feedback-form__group {
+    margin-bottom: 60px;
+  }
+
   .feedback-form__column {
     box-sizing: border-box;
+    width: 50%;
 
-    &--wide {
-      width: 50%;
+    &--left {
+      padding-right: 9.26%;
+
+      @include border(right);
     }
 
-    &--narrow {
-      width: 42%;
-    }
-
-    &--with-line {
-      border-right: 1px solid $dark-gray;
+    &--right {
+      padding-left: 9.26%;
     }
   }
 
@@ -68,7 +71,7 @@
 
   .feedback-form__btn {
     width: 50%;
-    max-width: 480px;
+    max-width: 400px;
     margin: 0;
   }
 
@@ -88,23 +91,39 @@
     margin-bottom: -20px;
   }
 
-  .feedback-form__selector--landmark {
-    width: 210px;
+  .feedback-form__selector {
+    &--landmark {
+      width: 210px;
+      padding-right: 0;
 
-    &:last-of-type {
-      margin-bottom: 20px;
+      &:last-of-type {
+        margin-bottom: 20px;
+      }
     }
   }
 }
 
 
 @media (min-width: $desktop-width) {
-  .feedback-form__contacts-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+  .feedback-form__group {
+    margin-bottom: 80px;
+
+    &--contacts {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .feedback-form__column {
+    &--left {
+      padding-right: 60px;
+    }
+
+    &--right {
+      padding-left: 60px;
+    }
   }
 
   .feedback-form__contact {
@@ -144,22 +163,24 @@
     margin: 0;
   }
 
-  .feedback-form__selector--landmark {
-    margin-right: auto;
-    margin-bottom: 0;
-
-    &:last-of-type {
+  .feedback-form__selector {
+    &--landmark {
+      margin-right: auto;
       margin-bottom: 0;
-    }
 
-    // на случай переполнения
-    &:nth-of-type(n+5) {
-      margin-top: 20px;
-      margin-right: 40px;
-    }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
-    &:nth-of-type(4n) {
-      margin-right: 0;
+      // на случай переполнения
+      &:nth-of-type(n+5) {
+        margin-top: 20px;
+        margin-right: 40px;
+      }
+
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
     }
   }
 }

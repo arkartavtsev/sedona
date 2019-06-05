@@ -1,8 +1,3 @@
-// убрать в общих стилях формы
-.search-form__cost {
-  margin-bottom: 0 !important;
-}
-
 .search-form__range {
   width: 100%;
 }
@@ -10,35 +5,37 @@
 .search-form__btn {
   width: 100%;
   margin-top: 20px;
-
-  // унести в общие стили
-  font-size: 18px;
-  line-height: 22px;
 }
 
+
 @media (min-width: $tablet-width) {
-  .search-form__column {
-    box-sizing: border-box;
-    width: 40%;
-
-    &:first-of-type {
+  .search-form__group {
+    &--narrow {
+      box-sizing: border-box;
       width: 50%;
-      border-right: 1px solid $dark-gray;
+      margin-bottom: 60px;
     }
-  }
 
-  .search-form__cost {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
+    &--narrow-left {
+      padding-right: 9.26%;
+
+      @include border(right);
+    }
+
+    &--narrow-right {
+      padding-left: 9.26%;
+    }
+
+    &--wide {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
   .search-form__cost-field {
     width: 23.92%;
-
-    // убрать в общих стилях формы
-    margin-bottom: 20px;
 
     &:first-of-type {
       margin-right: 14px;
@@ -51,7 +48,7 @@
   }
 
   .search-form__btn {
-    width: 40%;
+    width: 40.74%;
     margin-top: 0;
     margin-left: auto;
   }
@@ -59,20 +56,23 @@
 
 
 @media (min-width: $desktop-width) {
-  .search-form__column {
-    width: 240px;
-    border-right: 1px solid $dark-gray;
-
-    // убрать в общих стилях формы
+  .search-form__group {
     margin-bottom: 0;
 
-    &:first-of-type {
+    &--narrow {
       width: 240px;
-    }
-  }
+      padding-right: 60px;
 
-  .search-form__cost {
-    width: 360px;
+      @include border(right);
+    }
+
+    &--narrow-right {
+      padding-left: 0;
+    }
+
+    &--wide {
+      width: 360px;
+    }
   }
 
   .search-form__cost-field {
@@ -86,7 +86,7 @@
 
   .search-form__btn {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 42px;
     margin-left: 0;
   }
 }

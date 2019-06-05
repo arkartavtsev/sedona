@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px $mobile-padding 40px;
-  border-bottom: 1px solid $gray;
+
+  @include border(bottom);
 }
 
 .sort-pane__search-results {
@@ -24,7 +25,7 @@
 
 @media (min-width: $tablet-width) {
   .sort-pane {
-    padding: 60px $tablet-padding;
+    padding: 80px $tablet-padding;
   }
 
   .sort-pane__search-results {
@@ -41,7 +42,7 @@
 
 @media (min-width: $desktop-width) {
   .sort-pane {
-    padding: 80px 120px;
+    padding: 100px $desktop-padding;
   }
 
   .sort-pane__search-results {

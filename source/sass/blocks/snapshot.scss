@@ -1,6 +1,7 @@
 .snapshot {
   padding: $mobile-padding;
-  border-bottom: 1px solid $gray;
+
+  @include border(bottom);
 }
 
 .snapshot__image-link {
@@ -16,9 +17,10 @@
 
 .snapshot__title {
   margin: 0;
+  margin-bottom: 5px;
   font-weight: bold;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 1.2;
   color: black;
 }
 

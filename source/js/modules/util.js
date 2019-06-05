@@ -8,6 +8,11 @@
     ESC: 27
   };
 
+  var Resolution = {
+    TABLET: 768,
+    DESKTOP: 1200
+  };
+
 
   // IE forEach polyfill
   if ('NodeList' in window && !NodeList.prototype.forEach) {
@@ -38,6 +43,8 @@
 
   window.util = {
     KeyCode: KeyCode,
+    Resolution: Resolution,
+
     getTemplateContent: getTemplateContent
   };
 })();

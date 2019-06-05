@@ -1,14 +1,15 @@
-.selector {
+.form-selector {
   display: flex;
   align-items: center;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 }
 
-.selector__control-replacer {
+.form-selector__control-replacer {
+  flex-shrink: 0;
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   margin-right: 20px;
   background-color: $light-gray;
 
@@ -24,43 +25,44 @@
   }
 }
 
-.selector:hover .selector__control-replacer {
+.form-selector:hover .form-selector__control-replacer {
   background-color: $gray;
 }
-.selector:active .selector__control-replacer {
+.form-selector:active .form-selector__control-replacer {
   background-color: $dark-gray;
 }
-.selector:active .selector__control-replacer::after {
+.form-selector:active .form-selector__control-replacer::after {
   opacity: 0.3;
 }
 
-.selector__control:focus + .selector__control-replacer {
+.form-selector__control:focus + .form-selector__control-replacer {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-.selector__control:checked + .selector__control-replacer::after {
+.form-selector__control:checked + .form-selector__control-replacer::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.selector__control:checked + .selector__control-replacer--radiobtn::after {
+.form-selector__control:checked + .form-selector__control-replacer--radiobtn::after {
   width: 22px;
   height: 22px;
   background-color: $light-black;
   border-radius: 50%;
 }
-.selector__control:checked + .selector__control-replacer--checkbox::after {
+.form-selector__control:checked + .form-selector__control-replacer--checkbox::after {
   width: 24px;
   height: 16px;
   background: url("../img/icon-tick.svg") 0 0 / 24px 16px no-repeat;
 }
 
-.selector__caption {
+.form-selector__label {
   font-weight: bold;
   font-size: 18px;
+  line-height: 1.2;
   text-transform: none;
 
   // IE fix

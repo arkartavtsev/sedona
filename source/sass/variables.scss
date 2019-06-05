@@ -1,13 +1,18 @@
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+
+
 $desktop-width: 1200px;
 $tablet-width: 768px;
 $mobile-only-width: $tablet-width - 1px;
 $mobile-min-width: 320px;
 
-$retina-dpi: 144dpi;
-$retina-dppx: 1.5dppx;
-
-$mobile-padding: 6.25%;
+$desktop-padding: 120px;
 $tablet-padding: 7.8125%;
+$mobile-padding: 6.25%;
+
+$style-change-duration: 0.2s;
+
 
 $dark-gray: rgb(213, 213, 213);
 $gray: rgb(230, 230, 230);

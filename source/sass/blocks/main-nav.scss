@@ -8,25 +8,27 @@
   border-top: 1px solid rgb(154, 194, 219);
   border-bottom: 1px solid rgb(103, 143, 168);
 
-  &:first-of-type {
+  &:first-child {
     border-top-color: $light-blue;
   }
 
-  &:last-of-type {
+  &:last-child {
     border-bottom-color: $light-blue;
   }
 }
 
 .main-nav__link {
   display: block;
-  padding: 7px $mobile-padding;
+  padding: 16px $mobile-padding;
   font-weight: bold;
   font-size: 18px;
-  line-height: 40px;
+  line-height: 22px;
   text-align: center;
   text-decoration: none;
   color: white;
   background-color: $light-blue;
+  user-select: none;
+  transition: color $style-change-duration, background-color $style-change-duration;
 
   &:hover {
     background-color: $blue;
@@ -59,7 +61,7 @@
   .main-nav__item {
     box-sizing: border-box;
     width: 20%;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     border: none;
 
@@ -75,10 +77,10 @@
   }
 
   .main-nav__link {
-    display: inline;
+    display: inline-block;
     padding: 0;
     font-size: 14px;
-    line-height: 26px;
+    line-height: 16px;
     color: black;
     background-color: transparent;
 

@@ -1,13 +1,15 @@
 .hashtag {
   font-weight: bold;
-  font-size: 21px;
-  line-height: 21px;
+  font-size: 18px;
+  line-height: 1;
   text-align: center;
 }
 
 .hashtag__link {
   text-decoration: none;
   color: black;
+  user-select: none;
+  transition: color $style-change-duration;
 
   &:hover {
     color: $light-blue;
@@ -15,5 +17,12 @@
 
   &:active {
     color: rgba(black, 0.3%);
+  }
+}
+
+
+@media (min-width: $tablet-width) {
+  .hashtag {
+    font-size: 21px;
   }
 }

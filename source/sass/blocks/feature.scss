@@ -1,4 +1,8 @@
 .feature {
+  &--first {
+    padding-top: 37px;
+  }
+
   &--highlighted {
     color: white;
     background-color: $light-blue;
@@ -6,7 +10,6 @@
 
   &--primary {
     position: relative;
-    padding: 30px $mobile-padding;
 
     &::after {
       content: "";
@@ -14,7 +17,8 @@
       right: $mobile-padding;
       bottom: 0;
       left: $mobile-padding;
-      border-bottom: 1px solid $dark-gray;
+
+      @include border(bottom, $dark-gray);
     }
 
     &:last-child::after {
@@ -24,18 +28,18 @@
 
   &--secondary {
     margin-bottom: 15px;
-  }
 
-  &--secondary:last-child {
-    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 .feature__body {
   padding: 30px $mobile-padding;
 
-  &--first {
-    padding-top: 67px;
+  &--secondary {
+    padding: 0;
   }
 }
 
@@ -44,7 +48,7 @@
   margin-bottom: 14px;
   font-weight: bold;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 1.2;
   color: black;
 
   &--highlighted {
@@ -59,11 +63,10 @@
     margin-top: 12px;
     font-weight: normal;
     font-size: 14px;
-    line-height: 21px;
   }
 
   &--secondary {
-    padding: 7px 0;
+    padding: 10px 0;
     padding-left: 50px;
     margin-bottom: 0;
     background-repeat: no-repeat;
@@ -82,11 +85,9 @@
   }
 
   &--souvenirs {
-    padding-top: 10px;
-    padding-bottom: 4px;
     background-image: url("../img/icon-gift.svg");
     background-position: 2px 0;
-    background-size: 32px 38px;
+    background-size: 32px 37px;
   }
 }
 
@@ -124,6 +125,13 @@
 
 @media (min-width: $tablet-width) {
   .feature {
+    box-sizing: border-box;
+    width: 33.33%;
+
+    &--first {
+      padding-top: 0;
+    }
+
     &--highlighted {
       display: flex;
       flex-wrap: wrap;
@@ -131,27 +139,23 @@
     }
 
     &--primary {
-      box-sizing: border-box;
-      width: 33.33%;
-      padding: 40px 5.21%;
-
       &::after {
         content: none;
       }
     }
 
     &--secondary {
-      box-sizing: border-box;
-      width: 33.33%;
-      padding: 40px 5.21%;
       margin: 0;
     }
   }
 
   .feature__body {
-    box-sizing: border-box;
-    width: 33.33%;
     padding: 40px 5.21%;
+
+    &--highlighted {
+      box-sizing: border-box;
+      width: 33.33%;
+    }
 
     &--right {
       order: 1;
@@ -220,16 +224,6 @@
 
 
 @media (min-width: $desktop-width) {
-  .feature {
-    &--primary {
-      padding: 50px 55px;
-    }
-
-    &--secondary {
-      padding: 50px 55px;
-    }
-  }
-
   .feature__body {
     padding: 50px 55px;
   }

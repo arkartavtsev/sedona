@@ -1,6 +1,7 @@
 .hotel-card {
   padding: $mobile-padding;
-  border-bottom: 1px solid $gray;
+
+  @include border(bottom);
 }
 
 .hotel-card__description {
@@ -40,7 +41,7 @@
   margin: 0;
   font-weight: bold;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
 }
 
 .hotel-card__category {
@@ -81,12 +82,8 @@
 .hotel-card__btn {
   width: 100%;
 
-  // унести в общие стили
-  font-size: 18px;
-  line-height: 22px;
-
-  &--details {
-    margin-bottom: 20px;
+  &--book {
+    display: none;
   }
 }
 
@@ -95,7 +92,7 @@
   .hotel-card {
     display: flex;
     flex-wrap: wrap;
-    padding: 30px $tablet-padding;
+    padding: 54px $tablet-padding;
   }
 
   .hotel-card__photo-container {
@@ -116,12 +113,11 @@
 
   .hotel-card__link {
     width: auto;
-    max-width: 70%;
+    max-width: 75%;
   }
 
   .hotel-card__title {
     font-size: 21px;
-    line-height: 26px;
   }
 
   .hotel-card__category {
@@ -130,7 +126,7 @@
   }
 
   .hotel-card__parameters {
-    width: 70%;
+    width: 75%;
   }
 
   .hotel-card__type {
@@ -153,6 +149,7 @@
     }
 
     &--book {
+      display: block;
       margin-right: auto;
     }
   }
@@ -161,7 +158,7 @@
 
 @media (min-width: $desktop-width) {
   .hotel-card {
-    padding: 60px 120px;
+    padding: 54px $desktop-padding;
   }
 
   .hotel-card__photo-container {

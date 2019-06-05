@@ -9,6 +9,7 @@
   width: 115px;
   height: 41px;
   fill: black;
+  transition: fill $style-change-duration;
 
   &:hover {
     fill: $light-blue;

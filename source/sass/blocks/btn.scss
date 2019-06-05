@@ -3,8 +3,8 @@
   box-sizing: border-box;
   padding: 16px 32px;
   font-weight: bold;
-  font-size: 21px;
-  line-height: inherit;
+  font-size: 18px;
+  line-height: 22px;
   font-family: inherit;
   text-align: center;
   text-transform: uppercase;
@@ -13,6 +13,8 @@
   background-color: $light-blue;
   border: none;
   cursor: pointer;
+  user-select: none;
+  transition: color $style-change-duration, background-color $style-change-duration;
 
   &:hover {
     background-color: $blue;

@@ -1,3 +1,70 @@
-.page-main {
-  color: $light-black;
+.page-main__intro {
+  margin-bottom: 40px;
+}
+
+
+//index
+
+.page-main__features {
+  margin-bottom: 40px;
+}
+
+.page-main__go-to-hotels {
+  margin-bottom: 45px;
+}
+
+
+// gallery
+
+.page-main__gallery {
+  margin-bottom: 40px;
+}
+
+
+@media (min-width: $tablet-width) {
+  .page-main__intro {
+    margin-bottom: 90px;
+  }
+
+  //index
+
+  .page-main__features {
+    margin-bottom: 90px;
+  }
+
+  .page-main__go-to-hotels {
+    margin-bottom: 100px;
+  }
+
+
+  // gallery
+
+  .page-main__gallery {
+    margin-bottom: 90px;
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .page-main__intro {
+    margin-bottom: 120px;
+  }
+
+
+  //index
+
+  .page-main__features {
+    margin-bottom: 120px;
+  }
+
+  .page-main__go-to-hotels {
+    margin-bottom: 130px;
+  }
+
+
+  // gallery
+
+  .page-main__gallery {
+    margin-bottom: 120px;
+  }
 }

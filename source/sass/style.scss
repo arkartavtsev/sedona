@@ -1,6 +1,7 @@
 //===== common
 @import "variables";
-@import "font";
+@import "mixins";
+@import "global/*";
 
 //===== body
 @import "blocks/page-body";
@@ -16,8 +17,10 @@
 //===== main
 @import "blocks/page-main";
 @import "blocks/intro";
+@import "blocks/section";
 //===== form
-@import "blocks/selector";
+@import "blocks/form-selector";
+@import "blocks/form-field";
 @import "blocks/form";
 //===== footer
 @import "blocks/page-footer";
@@ -28,7 +31,7 @@
 //===== index.html
 @import "blocks/features";
 @import "blocks/feature";
-@import "blocks/hotels-search";
+@import "blocks/go-to-hotels";
 @import "blocks/sedona-location";
 
 //===== gallery.html
@@ -47,15 +50,3 @@
 
 //===== feedback.html
 @import "blocks/feedback-form";
-
-
-.visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  border: 0;
-}

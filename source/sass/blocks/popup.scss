@@ -25,7 +25,7 @@
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 1.4;
   text-align: center;
 }
 
@@ -79,11 +79,17 @@
   }
 
   .popup__title {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 24px;
   }
 
   .popup__text {
     margin-bottom: 30px;
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .popup__title {
+    font-size: 30px;
   }
 }

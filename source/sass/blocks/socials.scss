@@ -2,31 +2,35 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: -6px;
-  margin-right: -6px;
+
+  // на случай переполнения
+  margin-top: -10px;
+  margin-right: -10px;
 }
 
 .socials__btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   padding: 0;
-  margin-right: 6px;
+  margin-right: 10px;
 
   // на случай переполнения
-  margin-top: 6px;
-
-  &:active .socials__icon {
-    opacity: 0.3;
-  }
+  margin-top: 10px;
 }
 
 .socials__icon {
   display: block;
+  width: 20px;
+  height: 20px;
   fill: white;
 
   // IE fix
   pointer-events: none;
+}
+
+.socials__btn:active .socials__icon {
+  opacity: 0.3;
 }
