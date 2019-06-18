@@ -2,7 +2,7 @@
 
 
 (function () {
-  var template = document.querySelector('#hotel');
+  var template = document.querySelector('#hotel-template');
   var container = document.querySelector('.hotels__container');
 
 
@@ -14,7 +14,7 @@
     var starTemplate = templateContent.querySelector('.hotel-card__star');
 
 
-    var createStars = function (count) {
+    var addStars = function (count) {
       var fragment = document.createDocumentFragment();
 
       for (var i = 0; i < count; i++) {
@@ -24,26 +24,38 @@
       return fragment;
     };
 
+    var addDescription = function (hotelElement, hotelData) {
+      var description = hotelElement.querySelector('.hotel-card__description');
+
+      description.querySelector('.hotel-card__title').textContent = hotelData.title;
+      description.querySelector('.hotel-card__category-transcription').textContent = 'Категория отеля: ' + hotelData.category + ' звезды';
+      description.querySelector('.hotel-card__category').appendChild(addStars(hotelData.category));
+      description.querySelector('.hotel-card__rating').textContent = 'Рейтинг: ' + hotelData.rating;
+      description.querySelector('.hotel-card__type').textContent = hotelData.type;
+      description.querySelector('.hotel-card__price').textContent = 'От ' + hotelData.cost + ' \u20BD';
+    };
+
+    var addPhoto = function (hotelElement, hotelData) {
+      var photoContainer = hotelElement.querySelector('.hotel-card__photo-container');
+      var photo = photoContainer.querySelector('.hotel-card__photo');
+
+      photo.src = 'img/hotel-' + hotelData.id + '-mobile@1x.jpg';
+      photo.srcset = 'img/hotel-' + hotelData.id + '-mobile@2x.jpg 2x';
+      photo.alt = 'Отель ' + hotelData.title;
+
+      photoContainer.querySelector('[data-source-type="jpg"]').srcset = 'img/hotel-' + hotelData.id + '@1x.jpg 1x, img/hotel-' + hotelData.id + '@2x.jpg 2x';
+
+      photoContainer.querySelector('[data-source-type="webp-mobile"]').srcset = 'img/hotel-' + hotelData.id + '-mobile@1x.webp 1x, img/hotel-' + hotelData.id + '-mobile@2x.webp 2x';
+
+      photoContainer.querySelector('[data-source-type="webp"]').srcset = 'img/hotel-' + hotelData.id + '@1x.webp 1x, img/hotel-' + hotelData.id + '@2x.webp 2x';
+    };
+
+
     var createAnotherHotel = function (hotel) {
       var anotherHotel = hotelTemplate.cloneNode(true);
-      var photoContainer = anotherHotel.querySelector('.hotel-card__photo-container');
-      var photo = photoContainer.querySelector('.hotel-card__photo');
-      var description = anotherHotel.querySelector('.hotel-card__description');
 
-      photo.src = 'img/hotel-' + hotel.id + '-mobile@1x.jpg';
-      photo.srcset = 'img/hotel-' + hotel.id + '-mobile@2x.jpg 2x';
-      photo.alt = 'Отель ' + hotel.title;
-
-      photoContainer.querySelector('#source-jpg').srcset = 'img/hotel-' + hotel.id + '@1x.jpg 1x, img/hotel-' + hotel.id + '@2x.jpg 2x';
-      photoContainer.querySelector('#source-webp-mobile').srcset = 'img/hotel-' + hotel.id + '-mobile@1x.webp 1x, img/hotel-' + hotel.id + '-mobile@2x.webp 2x';
-      photoContainer.querySelector('#source-webp').srcset = 'img/hotel-' + hotel.id + '@1x.webp 1x, img/hotel-' + hotel.id + '@2x.webp 2x';
-
-      description.querySelector('.hotel-card__title').textContent = hotel.title;
-      description.querySelector('.hotel-card__category-transcription').textContent = 'Категория отеля: ' + hotel.category + ' звезды';
-      description.querySelector('.hotel-card__category').appendChild(createStars(hotel.category));
-      description.querySelector('.hotel-card__rating').textContent = 'Рейтинг: ' + hotel.rating;
-      description.querySelector('.hotel-card__type').textContent = hotel.type;
-      description.querySelector('.hotel-card__price').textContent = 'От ' + hotel.cost + ' \u20BD';
+      addDescription(anotherHotel, hotel);
+      addPhoto(anotherHotel, hotel);
 
       return anotherHotel;
     };

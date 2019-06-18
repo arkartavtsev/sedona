@@ -8,16 +8,18 @@
 
   if (headerBar && menu) {
     var menuBtn = headerBar.querySelector('.menu-btn');
-    var menuHeight = menu.scrollHeight + 'px';
 
 
     var onMenuBtnClick = function (evt) {
       evt.preventDefault();
-      menu.style.height = (menu.offsetHeight === 0) ? menuHeight : 0;
+      menu.style.height = (menu.offsetHeight === 0) ? menu.scrollHeight + 'px' : 0;
     };
 
+
     var onWindowResize = function () {
-      menu.removeAttribute('style');
+      if (document.documentElement.clientWidth >= window.util.Resolution.TABLET) {
+        menu.removeAttribute('style');
+      }
     };
 
 

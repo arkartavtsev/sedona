@@ -2,18 +2,18 @@
 
 
 (function () {
-  var mapContainer = document.querySelector('.sedona-location');
+  var sedonaLocation = document.querySelector('.sedona-location');
 
 
   window.initMap = function () {
-    if (mapContainer) {
+    if (sedonaLocation) {
       var CENTER_COORDS = {
         lat: 34.869867,
         lng: -111.760635
       };
 
 
-      var map = mapContainer.querySelector('#map');
+      var mapContainer = sedonaLocation.querySelector('#map');
 
       var mapProperties = {
         center: CENTER_COORDS,
@@ -24,7 +24,7 @@
         backgroundColor: '#fff'
       };
 
-      var sedonaMap = new google.maps.Map(map, mapProperties);
+      var map = new google.maps.Map(mapContainer, mapProperties);
 
 
       var markerIcon = {
@@ -34,7 +34,7 @@
 
       var markerProperties = {
         position: CENTER_COORDS,
-        map: sedonaMap,
+        map: map,
         optimized: false,
         icon: markerIcon
       };
@@ -42,8 +42,7 @@
       var marker = new google.maps.Marker(markerProperties);
 
 
-      mapContainer.classList.add('sedona-location--js');
-      mapContainer.querySelector('.sedona-location__img').classList.add('sedona-location__img--js');
+      sedonaLocation.classList.add('sedona-location--js');
     }
   };
 })();
